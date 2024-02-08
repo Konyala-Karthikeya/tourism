@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: space-between; /* Adjust this according to your layout needs */
+}
+
+.box {
+    width: 45%; /* Adjust width as needed */
+    /* Add other styles as needed */
+}
+
+.box-1 {
+    width: 45%; /* Adjust width as needed */
+    /* Add other styles as needed */
+}
