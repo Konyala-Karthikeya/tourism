@@ -1,0 +1,49 @@
+/* Navbar styles */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* ensure it's above the video */
+  }
+  
+  .navbar-content {
+    padding: 10px;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  /* Video container styles */
+  .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* put it behind other content */
+  }
+  
+  .video-container video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Content styles */
+  .content {
+    padding-top: 100px; /* Adjust according to navbar height */
+    text-align: center;
+    color: white;
+  }
+  
