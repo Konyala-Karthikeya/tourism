@@ -1,6 +1,8 @@
+<!-- <app-header></app-header> -->
 <div class="heading">
-    <h1><b><strong><i>Tour Packages</i></strong></b></h1>
-  </div>
+  <h1><b><strong><i>Tour Packages</i></strong></b></h1>
+</div>
+
   <div class="wrapper">
     <div class="card-container">
       <div class="col" *ngFor="let package of packages">
@@ -14,7 +16,7 @@
             <!-- <p><b>Secondary Destination:</b> {{ package.secondarydestination }}</p> -->
             <p><b>Duration:</b> {{ package.duration }}</p>
             <p><b>Inclusions:</b> {{ package.inclusions }}</p>
-            <!-- <button (click)="addToCart(package)">Add to Cart</button> -->
+            <button (click)="addToCart(package)">Add to Cart</button>
           </div>
         </div>
       </div>

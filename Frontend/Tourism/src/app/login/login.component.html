@@ -1,49 +1,48 @@
-
-<div class="container" #container>
-    <div class="form-container sign-up-container">
-      <form action="#">
-        <h1>Create Account</h1>
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <span>or use your email for registration</span>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <input type="password" placeholder="Confirm Password" />
-        <!-- Add more input fields here if needed -->
-        <button>Sign Up</button>
-      </form>
+<div class="login">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    </head>
+    
+    
+    <div class="container">
+      <h1>Login Form</h1>
+    
+    <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm.value)" novalidate>
+      <table>
+          <tr>
+              <td>
+                  <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                      <input type="text" class="form-control" name="emailId" ngModel #emailId="ngModel" placeholder="Enter Email-Id" required minlength="2" maxlength="20" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
+                  </div>
+                  <br/>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                      <input type="password" class="form-control" name="password" ngModel #password="ngModel" placeholder="Enter Password" required minlength="2" maxlength="20"/>
+                  </div>
+                  <br/>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <button class="btn btn-primary" type="submit" >Login</button>
+                   New User? <a href="register" target="_blank">SignUp</a>
+              </td>
+          </tr>
+      </table>
+    </form>
+    
+    
+    <div *ngIf="emailId.errors?.['required'] && emailId.touched" style="color: red;">Please Enter EmailId</div>
+    <div *ngIf="password.errors?.['required'] && password.touched" style="color: red;">Please Enter Password</div>
+    
+    <div *ngIf="emailId.errors?.['minlength'] && emailId.touched" style="color: red;">Please Enter Atleast 2 Characters</div>
+    <div *ngIf="password.errors?.['minlength'] && password.touched" style="color: red;">Please Enter Atleast 2 Characters</div>
+    
     </div>
-    <div class="form-container sign-in-container">
-      <form action="#">
-        <h1>Sign in</h1>
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <span>or use your account</span>
-        <input type="email" placeholder="Email" name="email" [(ngModel)]="email"/>
-        <input type="password" placeholder="Password" name="password" [(ngModel)]="password"/>
-        <a href="#">Forgot your password?</a>
-        <button type="button" (click)="signIn()">Sign In</button>
-      </form>
     </div>
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-panel overlay-left">
-          <h1>Welcome Back!</h1>
-          <p>To keep connected with us please login with your personal info</p>
-          <button class="ghost" (click)="signIn()">Sign In</button>
-        </div>
-        <div class="overlay-panel overlay-right">
-          <h1>Hello, Friend!</h1>
-          <p>Enter your personal details and start journey with us</p>
-          <button class="ghost" (click)="signUp()">Sign Up</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    

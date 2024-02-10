@@ -1,14 +1,88 @@
-.container {
-    display: flex;
-    justify-content: space-between; /* Adjust this according to your layout needs */
+/* footer.component.css */
+
+footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
 }
 
-.box {
-    width: 45%; /* Adjust width as needed */
-    /* Add other styles as needed */
+.footerContainer {
+  padding: 10px;
 }
 
-.box-1 {
-    width: 45%; /* Adjust width as needed */
-    /* Add other styles as needed */
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.socialIcons a {
+  text-decoration: none;
+  padding: 10px;
+  background-color: white;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+.socialIcons a i {
+  font-size: 1.5em;
+  color: black;
+  opacity: 0.9;
+}
+
+.socialIcons a:hover {
+  background-color: #111;
+  transition: 0.5s;
+}
+
+.socialIcons a:hover i {
+  color: white;
+  transition: 0.5s;
+}
+
+.footerNav {
+  margin: 20px 0; /* Adjusted margin */
+}
+
+.footerNav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.footerNav ul li {
+  margin: 0 15px; /* Adjusted margin between items */
+}
+
+.footerNav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.3em;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.footerNav ul li a:hover {
+  opacity: 1;
+}
+
+.footerBottom {
+  /* background-color: #000; */
+  padding: 10px;
+  text-align: center;
+}
+
+.footerBottom p {
+  color: white;
+}
+
+.designer {
+  opacity: 7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 0px 5px;
 }
