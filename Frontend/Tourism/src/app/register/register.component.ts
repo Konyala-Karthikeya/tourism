@@ -83,11 +83,17 @@ registerSubmit(formData: any,form: NgForm) {
     this.customer.gender = formData.gender;
     this.customer.country = formData.country;
     this.customer.role = formData.role;
-    this.customer.phoneNumber= formData.mobileNumber;
+    this.customer.mobileNumber= formData.mobileNumber;
     this.customer.email = formData.emailId;
     this.customer.password= formData.password;
 
     console.log(formData);
+
+    this.service.registerCustomer(this.customer).subscribe((data: any) => {
+      console.log(data);
+      this.router.navigate(['login']);
+    });
+  
 
     this.randomNumber = this.getRandomNumber(100000, 999999);
 
@@ -109,5 +115,8 @@ registerSubmit(formData: any,form: NgForm) {
       }
     });
 
+
+
 }
+
 }
