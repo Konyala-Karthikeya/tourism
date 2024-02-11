@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { CustomerService } from '../customer.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -8,37 +12,102 @@ import { Subject } from 'rxjs';
 export class RegisterComponent implements OnInit {
   
 
-  regForm:any;
-  confirmPasswordMatch: boolean = true;
-  confirmPasswordDirty: boolean = false;
-  selectedState: any;
-  selectedCountry: any;
+  formError: string = '';
   password: any;
   confirmPassword: any;
-  countries: any[] = [];
-  states: any[] = [];
-  cities: any[] = [];
   customer: any;
+  countries: any;
+  randomNumber : number;
 
-  private confirmPasswordChanged = new Subject<void>();
-  
-  registerSubmit(regForm: any) {
-    console.log(regForm);
+  constructor(private service: CustomerService, private router: Router, private toastr: ToastrService){
+
+   this.customer = {
+    userName: '',
+    gender:'',
+    country:'',
+    state:'',
+    city:'',
+    mobileNumber:'',
+    emailId:'',
+    password:'',
+   }
+   this.randomNumber = 0;
   }
-  
-  ngOnInit(): void {
+  ngOnInit(){
     
+    this.service.getAllCountries().subscribe((data: any) => {
+      this.countries = data;
+    });
   }
+
+  showPassword: boolean = false;
+
+  focusPasswordField(passwordField: any) {
+    passwordField.focus();
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+  getRandomNumber(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+registerSubmit(formData: any,form: NgForm) {
   
-  validateConfirmPassword() {
-    // Add your validation logic here
+  if (
+    !formData.username ||
+    !formData.mobileNumber ||
+    !formData.gender ||
+    !formData.country ||
+    !formData.role||
+    !formData.emailId ||
+    !formData.password ||
+    !formData.confirmPassword
+  ) {
+    this.formError = 'All fields are required';
+    this.toastr.error('All fields are required');
+    return;
   }
 
-  onStateSelect() {
-    // Add your state selection logic here
+  if (formData.password !== formData.confirmPassword) {
+    this.formError = 'Passwords do not match';
+    form.controls['confirmPassword'].setErrors({ passwordMismatch: true });
+    return;
   }
 
-  onCountrySelect() {
-    // Add your country selection logic here
-  }
+  this.formError = '';
+
+    this.customer.userName = formData.username;
+    this.customer.gender = formData.gender;
+    this.customer.country = formData.country;
+    this.customer.role = formData.role;
+    this.customer.phoneNumber= formData.mobileNumber;
+    this.customer.email = formData.emailId;
+    this.customer.password= formData.password;
+
+    console.log(formData);
+
+    this.randomNumber = this.getRandomNumber(100000, 999999);
+
+    this.service.sendOtpToUser(this.customer.phoneNumber, this.randomNumber)
+    .subscribe({
+      next: (flag: any) => {
+        if (flag) {
+          this.service.customer = this.customer;
+          this.service.otp = this.randomNumber;
+          this.service.setIsUserLoggedIn();
+          this.router.navigate(['otp']);
+        } else {
+          this.toastr.error('OTP is not sent to the user');
+        }
+      },
+      error: (error) => {
+        console.error('Error sending OTP:', error);
+        this.toastr.error('Error sending OTP. Please try again.');
+      }
+    });
+
+}
 }
