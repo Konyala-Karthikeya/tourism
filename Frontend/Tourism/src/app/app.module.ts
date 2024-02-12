@@ -16,6 +16,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { Header1Component } from './header1/header1.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     RegisterComponent,
     HomeComponent,
     AboutComponent,
-    LogoutComponent
+    LogoutComponent,
+    Header1Component
   ],
   imports: [
     BrowserModule,
