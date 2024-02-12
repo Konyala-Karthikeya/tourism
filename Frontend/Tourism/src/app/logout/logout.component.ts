@@ -6,19 +6,21 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',
-  styleUrls: ['./logout.component.css'] // corrected typo in styleUrls
+  styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private router: Router, private toastr: ToastrService, private service: CustomerService) { }
+  constructor(private router: Router, private service: CustomerService, private toastr: ToastrService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.logout();
   }
 
-  logout() {
-    // Assuming setIsUserLoggedOut() performs the necessary actions to mark user as logged out
-    this.service.setIsUserLoggedOut();
-    this.router.navigate(['login']);
+  logout(): void {
+    this.service.setIsUserLoggedOut(); // Update user login status
+
+    this.toastr.success('Logout successful', 'Success'); // Display success message
+
+    this.router.navigate(['login']); // Navigate to login page
   }
 }
