@@ -1,5 +1,5 @@
-
 <div class="body1">
+<<<<<<< HEAD
 <div class="body">
 	<h1>Register</h1>
 	<form #regForm="ngForm" (ngSubmit)="registerSubmit(regForm.value)" class="form">
@@ -13,24 +13,35 @@
 			<h6 *ngIf="regForm.controls['username'].invalid && regForm.controls['username'].touched"
 			class="error" style="color: red;">Username is required.</h6>		
 	    </div>
+=======
+    <div class="body">
+        <h1>Register</h1>
+        <form #registrationForm="ngForm" (ngSubmit)="registerSubmit(registrationForm.value, registrationForm)" class="form" novalidate>
+            <div class="column1">
+                <div class="input-box">
+                    <label>User Name</label>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" class="form-control" placeholder="Enter Username" name="username" ngModel required (focus)="focusPasswordField(passwordInput)" />
+                </div>
+                <h6 *ngIf="registrationForm.controls['username'].invalid && registrationForm.controls['username'].touched" class="error" style="color: red;">Username is required.</h6>
+            </div>
+>>>>>>> acefc4237832d4f91f8f9f725a3ff8b294e79a92
 
-		<div class="column1">
-			<div class="input-box">
-				<label>Gender</label>
-				<br>
-				<select name="gender" class="form-control" ngModel required>
-					<option value="" disabled selected>Select Gender</option>
-					<option value="Male">Male</option>
-					<option value="Female">Female</option>
-					<option value="Others">Others</option>
-				  </select>
-			</div>
-		</div>
-		<div>
-		<h6 *ngIf="regForm.controls['gender'].invalid && regForm.controls['gender'].touched"
-        class="error" style="color: red;">Gender is required.</h6>
-	    </div>
+            <div class="column1">
+                <div class="input-box">
+                    <label>Gender</label>
+                    <br>
+                    <select name="gender" class="form-control" ngModel required>
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <h6 *ngIf="registrationForm.controls['gender'].invalid && registrationForm.controls['gender'].touched" class="error" style="color: red;">Gender is required.</h6>
+            </div>
 
+<<<<<<< HEAD
 		<div class="column1">
 			<div class="input-box">
 				<label>Country</label>
@@ -84,49 +95,75 @@
         <h6 *ngIf="mobileNumber.hasError('required')">Mobile Number is required.</h6>
         <h6 *ngIf="mobileNumber.hasError('pattern')">Enter a valid number starting with +91 </h6>
         <h6 *ngIf="mobileNumber.hasError('maxlength')">Mobile Number should not exceed 15 characters.</h6>
+=======
+            <div class="column1">
+                <div class="input-box">
+                    <label>Country</label>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
+                    <select class="form-control" name="country" ngModel required>
+                        <option value="" selected>Select Country</option>
+                        <option value="{{country.cca3}}" *ngFor="let country of countries">{{country.name.common}}</option>
+                    </select>
+                </div>
+                <h6 *ngIf="registrationForm.controls['country'].invalid && registrationForm.controls['country'].touched" class="error" style="color: red;">Country is required.</h6>
+            </div>
+
+            <div class="column1">
+                <div class="input-box">
+					<label>EmailId</label>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input type="text" class="form-control" placeholder="Enter email" name="emailId" ngModel #emailId="ngModel" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
+                </div>
+                <h6 *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="error" style="color: red;">
+                    <h6 *ngIf="emailId.hasError('required')">Email is required.</h6>
+                    <h6 *ngIf="emailId.hasError('pattern')">Enter a valid email.</h6>
+                </h6>
+            </div>
+
+            <div class="column1">
+                <div class="input-box">
+                    <label>Mobile Number</label>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                    <input type="text" class="form-control" placeholder="Enter MobileNo" name="mobileNumber" ngModel #mobileNumber="ngModel" required pattern="^\+91 \d{5} \d{5}$" maxlength="16" />
+                </div>
+                <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="error" style="color: red;">
+                    <h6 *ngIf="mobileNumber.hasError('required')">Mobile Number is required.</h6>
+                    <h6 *ngIf="mobileNumber.hasError('pattern')">Enter a valid number starting with +91 </h6>
+                    <h6 *ngIf="mobileNumber.hasError('maxlength')">Mobile Number should not exceed 15 characters.</h6>
+                </div>
+            </div>
+
+            <div class="column1">
+                <div class="input-box">
+					<label>Password</label>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" placeholder="Enter password" name="password" ngModel #passwordInput="ngModel" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%?&]{8,20}$" maxlength="20" />
+                    <span class="input-group-addon" (click)="togglePasswordVisibility()">
+                        <i class="{{ showPassword ? 'glyphicon glyphicon-eye-open' : 'glyphicon glyphicon-eye-close' }}"></i>
+                    </span>
+                </div>
+                <h6 *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error" style="color: red;">
+                    <h6 *ngIf="passwordInput.hasError('required')">Password is required.</h6>
+                    <h6 *ngIf="passwordInput.hasError('pattern')">Password must be alphanumeric </h6>
+                </h6>
+            </div>
+
+            <div class="column1">
+                <div class="input-box">
+					<label>ConfirmPassword</label>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" placeholder="Enter confirm password" name="confirmPassword" ngModel #confirmPasswordInput="ngModel" required />
+                </div>
+                <h6 *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched && confirmPasswordInput.hasError('passwordMismatch')" class="error" style="color: red;">Passwords do not match.</h6>
+                <h6 *ngIf="confirmPasswordInput.touched && confirmPasswordInput.hasError('required')" class="error" style="color: red;">Confirm Password is Required.</h6>
+            </div>
+
+            <button type="submit">
+                <h5>Register</h5>
+            </button>
+
+            <p>Already a user? <a routerLink="/login">Login</a></p>
+        </form>
+>>>>>>> acefc4237832d4f91f8f9f725a3ff8b294e79a92
     </div>
-		<div class="column1">
-			<div class="input-box">
-				<label>Password</label>
-				<input type="password" name="password" ngModel #password="ngModel" required minlength="8" maxlength="20"
-					pattern="^(?=.*[A-Z])(?=.*[!@#$%^&*()-_+=])[A-Za-z0-9!@#$%^&*()-_+=]{8,}$" />
-			</div>
-		</div>
-		<div class="column1">
-			<div class="input-box">
-				<label> ConfirmPassword</label>
-				<input type="password" name="password" ngModel #confirmPassword="ngModel" required minlength="8"
-					maxlength="20" pattern="^(?=.*[A-Z])(?=.*[!@#$%^&*()-_+=])[A-Za-z0-9!@#$%^&*()-_+=]{8,}$"
-					(ngModelChange)="validateConfirmPassword()" />
-			</div>
-		</div>
-		<button type="submit" [disabled]="regForm.invalid">Register</button>
-
-<div>
-	
-	<div>
-		<div *ngIf="emailId.errors?.['required'] && emailId.touched" style="color: red;">Please Enter EmailId</div>
-		<div *ngIf="password.errors?.['required'] && password.touched" style="color: red;">Please Enter Password</div>
-		<div *ngIf="emailId.errors?.['minlength'] && emailId.touched" style="color: red;">Please Enter correct EmailId
-		</div>
-		<div *ngIf="password.errors?.['minlength'] && password.touched" style="color: red;">Please Enter Atleast 8
-			Characters</div>
-		<div *ngIf="emailId.errors?.['pattern'] && emailId.touched" style="color: red;">Enter Correct Email Id</div>
-		<div *ngIf="password.errors?.['pattern'] && password.touched" style="color: red;">Your Password must contain
-			atleast one Capital letter and a Special Character</div>
-		<div *ngIf="confirmPassword.errors?.['required'] && confirmPassword.touched && confirmPasswordDirty"
-			style="color: red;">Please Confirm Password</div>
-		<div *ngIf="confirmPassword.errors?.['minlength'] && confirmPassword.touched && confirmPasswordDirty"
-			style="color: red;">Please Enter At Least 8 Characters for Confirm Password</div>
-		<div *ngIf="confirmPassword.errors?.['maxlength'] && confirmPassword.touched && confirmPasswordDirty"
-			style="color: red;">Please Enter No More Than 20 Characters for Confirm Password</div>
-		<div *ngIf="confirmPassword.errors?.['pattern'] && confirmPassword.touched && confirmPasswordDirty"
-			style="color: red;">Your Confirm Password must contain at least one Capital letter and a Special Character
-		</div>
-		<div *ngIf="confirmPasswordMatch === false && confirmPasswordDirty" style="color: red;">Passwords do not match
-		</div>
-	</div>
-
 </div>
-
-
