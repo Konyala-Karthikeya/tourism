@@ -26,7 +26,8 @@ export class PackagesComponent {
     ];
   }
 
-  addToCart(packageData: any) {
-    this.router.navigate(['/package-info', packageData.id, { data: JSON.stringify(packageData) }]);
+  addToCart(packages: any) {
+    this.router.navigate(['/package', packages.id]);
   }
 }
+  

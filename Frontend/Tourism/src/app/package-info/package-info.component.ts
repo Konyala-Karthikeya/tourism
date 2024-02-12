@@ -14,8 +14,17 @@ export class PackageInfoComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       const packageId = params['id'];
-      const packageData = JSON.parse(params['data']);
-      this.package = packageData;
+      // Mock package data (replace with actual data)
+      this.package = {
+        id: packageId,
+        name: "Mock Package",
+        description: "This is a mock package description",
+        price: 100,
+        primarydestination: "Mock Destination 1",
+        secondarydestination: "Mock Destination 2",
+        duration: "5 days",
+        inclusions: "Mock inclusions"
+      };
     });
   }
 }
