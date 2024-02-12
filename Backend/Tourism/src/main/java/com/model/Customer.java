@@ -18,7 +18,6 @@ public class Customer {
 	private String emailId;
 	private String country;
 	private String password;
-	private String confirmPassword;
 	private String otp;
 	
 	public Customer() {
@@ -26,19 +25,18 @@ public class Customer {
 	}
 
 	public Customer(String userName, String gender, String phoneNumber, String emailId, String country,
-			String password, String confirmPassword, String otp) {
+			String password, String otp) {
 		this.userName = userName;
 		this.gender = gender;
 		this.phoneNumber = phoneNumber;
 		this.emailId = emailId;
 		this.country = country;
 		this.password = password;
-		this.confirmPassword = confirmPassword;
 		this.otp = otp;
 	}
 
 	public Customer(int customerId, String userName, String gender, String phoneNumber, String emailId, String country,
-			String password, String confirmPassword, String otp) {
+			String password, String otp) {
 		super();
 		this.customerId = customerId;
 		this.userName = userName;
@@ -47,7 +45,6 @@ public class Customer {
 		this.emailId = emailId;
 		this.country = country;
 		this.password = password;
-		this.confirmPassword = confirmPassword;
 		this.otp = otp;
 	}
 
@@ -101,14 +98,6 @@ public class Customer {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
 	}
 
 	public String getOtp() {

@@ -10,8 +10,8 @@
 			</div>
 		</div>
 		<div>
-		<h6 *ngIf="regForm.controls['username'].invalid && regForm.controls['username'].touched"
-        class="error" style="color: red;">Username is required.</h6>
+			<h6 *ngIf="regForm.controls['username'].invalid && regForm.controls['username'].touched"
+			class="error" style="color: red;">Username is required.</h6>		
 	    </div>
 
 		<div class="column1">
@@ -69,7 +69,7 @@
 			<div class="input-box">
 				<label>Email-Id</label>
 				<input type="text" name="emailId" ngModel #emailId="ngModel" required type="email" minlength="8"
-					pattern="[a-zA-Z0-9.%_'=&+,-><]+@[a-zA-Z0-9.-]+.[com]$" />
+					pattern="[a-zA-Z0-9.%_'=&+,->]+@[a-zA-Z0-9.-]+.[com]$" />
 			</div>
 		</div>
 		<div class="column1">

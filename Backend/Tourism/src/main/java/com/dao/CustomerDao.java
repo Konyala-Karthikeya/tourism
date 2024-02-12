@@ -21,45 +21,39 @@ public class CustomerDao {
 	@Autowired
 	private JavaMailSender mailSender;
 	
-	@Autowired
-	 private TwilioConfig twilioConfig;
-	
 	// Hash the password using BCrypt
     private String hashPassword(String plainTextPassword) {
         return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
     }
     
     public Customer addCustomer(Customer customer) {
-		String otp = generateOtp();
-		customer.setOtp(otp);
-		sendWelcomeEmail(customer);		// Send a welcome email
-		sendOtpViaTwilio(customer);		// Send OTP via Twilio
+		
+		sendWelcomeEmail(customer);
 		customer.setPassword(hashPassword(customer.getPassword()));
-		customer.setConfirmPassword(hashPassword(customer.getConfirmPassword()));
-		Customer savedCustomer = customerRepository.save(customer);   		// Save the employee
+		Customer savedCustomer = customerRepository.save(customer); 
 		return savedCustomer;
 	}
 	
     private void sendWelcomeEmail(Customer customer) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(customer.getEmailId());
-		message.setSubject("Welcome to our website");
+		message.setSubject("Welcome to Explore-ERA");
 		message.setText("Dear " + customer.getUserName()+ ",\n\n"
 				+ "Thank you for registering ");
 
 		mailSender.send(message);
 	}
     
-    private void sendOtpViaTwilio(Customer customer) {
-        String phoneNumber = customer.getPhoneNumber();
-        twilioConfig.sendOtp(phoneNumber, customer.getOtp());
-    }
-
-    private String generateOtp() {
-        Random random = new Random();
-        int otp = 100000 + random.nextInt(900000);
-        return String.valueOf(otp);
-    }
+//    private void sendOtpViaTwilio(Customer customer) {
+//        String phoneNumber = customer.getPhoneNumber();
+//        twilioConfig.sendOtp(phoneNumber, customer.getOtp());
+//    }
+//
+//    private String generateOtp() {
+//        Random random = new Random();
+//        int otp = 100000 + random.nextInt(900000);
+//        return String.valueOf(otp);
+//    }
     
     public Customer getCustomerByEmail(String emailId) {
 		return customerRepository.findByEmail(emailId);
@@ -70,7 +64,7 @@ public class CustomerDao {
 		if (customer != null && BCrypt.checkpw(password, customer.getPassword())) {
 	        return customer;
 	    } else {
-	    	Customer product1 = new Customer("Customer Not Found to Login!!!","","","","","","","");
+	    	Customer product1 = new Customer("Customer Not Found to Login!!!","","","","","","");
 			return product1;
 	    }
 	}
@@ -90,7 +84,7 @@ public class CustomerDao {
 	public Customer updateCustomer(Customer customer) {
 		if(customerRepository.findById(customer.getCustomerId()) != null)return customerRepository.save(customer);
 		else {
-			Customer product1 = new Customer("Customer Not Found to Update!!!"," "," "," "," "," "," "," ");
+			Customer product1 = new Customer("Customer Not Found to Update!!!"," "," "," "," "," "," ");
 			return product1;
 		}
 	}
