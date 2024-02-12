@@ -4,23 +4,23 @@
   <h1><b><strong><i>Tour Packages</i></strong></b></h1>
 </div>
 
-  <div class="wrapper">
-    <div class="card-container">
-      <div class="col" *ngFor="let package of packages">
-        <div class="card">
-          <img [src]="package.imgsrc">
-          <div class="card-content">
-            <h1>{{ package.name }}</h1>
-            <!-- <p>{{ package.description }}</p> -->
-            <p><b>Price:</b> ₹{{ package.price }}</p>
-            <!-- <p><b>Primary Destination:</b> {{ package.primarydestination }}</p> -->
-            <!-- <p><b>Secondary Destination:</b> {{ package.secondarydestination }}</p> -->
-            <p><b>Duration:</b> {{ package.duration }}</p>
-            <p><b>Inclusions:</b> {{ package.inclusions }}</p>
-            <button (click)="addToCart(package)">Add to Cart</button>
-          </div>
+<div class="wrapper">
+  <div class="card-container">
+    <div class="col" *ngFor="let package of packages">
+      <div class="card">
+        <img [src]="package.imgsrc">
+        <div class="card-content">
+          <h1>{{ package.name }}</h1>
+          <!-- <p>{{ package.description }}</p> -->
+          <p><b>Price:</b> ₹{{ package.price }}</p>
+          <!-- <p><b>Primary Destination:</b> {{ package.primarydestination }}</p> -->
+          <!-- <p><b>Secondary Destination:</b> {{ package.secondarydestination }}</p> -->
+          <p><b>Duration:</b> {{ package.duration }}</p>
+          <p><b>Inclusions:</b> {{ package.inclusions }}</p>
+          <!-- Modify the button click event binding as follows -->
+          <!-- <button (click)="addToCart(package)">Show more</button> -->
         </div>
       </div>
     </div>
   </div>
-  
+</div>

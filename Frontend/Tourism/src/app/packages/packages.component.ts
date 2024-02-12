@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-packages',
@@ -9,7 +10,7 @@ export class PackagesComponent {
   packages: any;
   cartProducts: any;
 
-  constructor() {
+  constructor(private router: Router) {
     this.cartProducts = [];
     this.packages = [
       { id: 1001, name: "Jaipur", description: "Jaipur became known as “The Pink City” when, in 1876, Maharaja Ram Singh had most of the buildings painted pink—the color of hospitality—in preparation for a visit by Britain's Queen Victoria. Today, the city is known for its bazaars, forts, temples, palaces, and wildlife sanctuaries.", price: 21280.00, primarydestination: "Munnar, Alleppey", secondarydestination: "Munnar Spice Plantations, waterfalls, Eravikulam National Park, Mattupetty Dam, Periyar Wildlife Sanctury, Allepy Houseboat Stay, Backwaters, St.Francis Church", duration: "5 Nights/6 Days", inclusions: "Upto 3 stars,Meals,Sightseeing,Transfers,Honeymoon Freebies", imgsrc: "assets/Images/Jaipur.jpg" },
@@ -25,9 +26,7 @@ export class PackagesComponent {
     ];
   }
 
-  addToCart(product: any) {
-    this.cartProducts.push(product);
-    localStorage.setItem("cartItems", JSON.stringify(this.cartProducts));
+  addToCart(packageData: any) {
+    this.router.navigate(['/package-info', packageData.id, { data: JSON.stringify(packageData) }]);
   }
 }
-  
