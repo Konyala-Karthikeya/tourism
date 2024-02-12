@@ -35,19 +35,14 @@ public class CustomerDao {
 	}
 	
     private void sendWelcomeEmail(Customer customer) {
-        if (customer.getEmailId() != null) {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(customer.getEmailId());
-            message.setSubject("Welcome to Explore-ERA");
-            message.setText("Dear " + customer.getUserName() + ",\n\n"
-                    + "Thank you for registering ");
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setTo(customer.getEmailId());
+		message.setSubject("Welcome to Explore-ERA");
+		message.setText("Dear " + customer.getUserName()+ ",\n\n"
+				+ "Thank you for registering ");
 
-            mailSender.send(message);
-        } else {
-            // Handle the case where the email address is null
-            System.out.println("Email address is null for customer: " + customer.getUserName());
-        }
-    }
+		mailSender.send(message);
+	}
     
 //    private void sendOtpViaTwilio(Customer customer) {
 //        String phoneNumber = customer.getPhoneNumber();

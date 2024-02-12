@@ -23,15 +23,13 @@ export class CustomerService {
       userName:'',
       gender:'',
       country:'',
-      state:'',
-      city:'',
       phoneNumber:'',
-      email:'',
+      emailId:'',
       password:''
     }
   }
 
-  sendOtpToUser(phoneNumber: string, otp: number): Observable<any> {
+  sendOtpToCustomer(phoneNumber: string, otp: number): Observable<any> {
     return this.http.get(`http://localhost:8085/sendOtp/${phoneNumber}/${otp}`);
   }
 
@@ -39,8 +37,8 @@ export class CustomerService {
     return this.http.get('https://restcountries.com/v3.1/all');
   }
   
-  registerCustomer(custommer:any):any{
-    return this.http.post('http://localhost:8085/addCustomer',this.customer);
+  registerCustomer(customer:any):any{
+    return this.http.post('http://localhost:8085/addCustomer',customer);
   }
  
   customerLogin(emailId:any,password:any){

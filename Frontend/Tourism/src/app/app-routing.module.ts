@@ -6,9 +6,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PackagesComponent } from './packages/packages.component';
 import { authGuard } from './auth.guard';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '' , component: HeaderComponent},
   { path: 'home',           component: HomeComponent },
   { path: 'about',           component: AboutComponent },
   { path: 'login',             component: LoginComponent },
