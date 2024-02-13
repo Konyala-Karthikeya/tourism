@@ -26,16 +26,16 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.aFormGroup = this.formBuilder.group({
-      recaptcha: ['', Validators.required]
-    });
+    // this.aFormGroup = this.formBuilder.group({
+    //   recaptcha: ['', Validators.required]
+    // });
   }
 
   async loginSubmit(formData: any) {
-    if (!this.aFormGroup.controls['recaptcha'].valid) {
-      this.toastr.error('Please complete the captcha');
-      return;
-    }
+    // if (!this.aFormGroup.controls['recaptcha'].valid) {
+    //   this.toastr.error('Please complete the captcha');
+    //   return;
+    // }
 
     if (!formData.emailId || !formData.password) {
       this.toastr.error('Both email and password are required');
@@ -57,3 +57,4 @@ export class LoginComponent implements OnInit {
     }
   }
 }
+

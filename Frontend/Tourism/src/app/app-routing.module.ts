@@ -11,7 +11,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { PackageInfoComponent } from './package-info/package-info.component'; // Import PackageInfoComponent
 
 const routes: Routes = [
-  { path: '' , component: HeaderComponent},
+  { path: '' , component: HomeComponent},
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },

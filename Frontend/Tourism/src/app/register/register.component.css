@@ -41,10 +41,12 @@ tbody{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 110px;
 }
 .body{
     position: relative;
     max-width:500px;
+    height: auto;
     width:90%;
     background: transparent;
     backdrop-filter: blur(25px);

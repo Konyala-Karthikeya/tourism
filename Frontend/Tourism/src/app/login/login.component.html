@@ -1,3 +1,4 @@
+<app-header></app-header>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
@@ -25,13 +26,13 @@
               <br/>
             </td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>
               <form [formGroup]="aFormGroup">
                 <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha"></ngx-recaptcha2>
               </form>
             </td>
-          </tr>
+          </tr> -->
           <tr>
             <td>
               <button type="submit">
@@ -48,4 +49,3 @@
       <div *ngIf="password.errors?.['minlength'] && password.touched" style="color: red;">Please Enter Atleast 2 Characters</div>
     </div>
   </div>
-  
