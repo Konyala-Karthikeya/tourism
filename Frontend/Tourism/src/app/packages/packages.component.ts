@@ -31,7 +31,7 @@ export class PackagesComponent {
       { id: 1017, name: "New York", description: "", price: 400000.00, primarydestination: "Newyork", secondarydestination: "Queenstown, Milford Sound, Arrowtown, Skyline Rotorua, Maori Hangi", duration: "7 Nights/8 Days", inclusions: "Upto 5 stars, Flights, Meals, Sightseeing, Transfers", imgsrc: "assets/Images/Statueofliberty.jpg" },
       { id: 1018, name: "England", description: "", price: 250000.00, primarydestination: "England", secondarydestination: "Queenstown, Milford Sound, Arrowtown, Skyline Rotorua, Maori Hangi", duration: "8 Nights/9 Days", inclusions: "Upto 5 stars, Flights, Meals, Sightseeing, Transfers", imgsrc: "assets/Images/Stonehenge.jpg" },
       { id: 1019, name: "Bhopal", description: "", price: 20000.00, primarydestination: "Bhopal", secondarydestination: "Queenstown, Milford Sound, Arrowtown, Skyline Rotorua, Maori Hangi", duration: "5 Nights/4 Days", inclusions: "Upto 5 stars, Flights, Meals, Sightseeing, Transfers", imgsrc: "assets/Images/Minifort.jpg" },
-      { id: 1020, name: "Israel", description: "", price: 30000.00, primarydestination: "Israel", secondarydestination: "Queenstown, Milford Sound, Arrowtown, Skyline Rotorua, Maori Hangi", duration: "5 Nights/4 Days", inclusions: "Upto 5 stars, Flights, Meals, Sightseeing, Transfers", imgsrc: "assets/Images/Pilgrimage.jpg" }
+      { id: 1020, name: "israel", description: "", price: 30000.00, primarydestination: "Israel", secondarydestination: "Queenstown, Milford Sound, Arrowtown, Skyline Rotorua, Maori Hangi", duration: "5 Nights/4 Days", inclusions: "Upto 5 stars, Flights, Meals, Sightseeing, Transfers", imgsrc: "assets/Images/Pilgrimage.jpg" }
     
     
     ];
