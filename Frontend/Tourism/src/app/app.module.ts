@@ -17,6 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 // import { NgxCaptchaModule } from 'ngx-captcha';
 import { Header1Component } from './header1/header1.component';
+import { OtpComponent } from './otp/otp.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { Header1Component } from './header1/header1.component';
     HomeComponent,
     AboutComponent,
     LogoutComponent,
-    Header1Component
+    Header1Component,
+    OtpComponent
   ],
   imports: [
     BrowserModule,

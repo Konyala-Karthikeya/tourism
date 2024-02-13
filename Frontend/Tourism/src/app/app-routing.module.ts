@@ -9,6 +9,7 @@ import { authGuard } from './auth.guard';
 import { HeaderComponent } from './header/header.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PackageInfoComponent } from './package-info/package-info.component'; // Import PackageInfoComponent
+import { OtpComponent } from './otp/otp.component';
 
 const routes: Routes = [
   { path: '' , component: HomeComponent},
@@ -19,9 +20,7 @@ const routes: Routes = [
   { path: 'packages', canActivate:[authGuard], component: PackagesComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'package/:id', component: PackageInfoComponent }, // Route for package info with ID parameter
-
-  // {path:'showemps', canActivate:[authGuard], component:ShowemployeesComponent},
-  // {path:'showempbyid', canActivate:[authGuard], component:ShowempbyidComponent},
+  { path: 'otp',        canActivate:[authGuard],   component:OtpComponent },
 ];
 
 @NgModule({
