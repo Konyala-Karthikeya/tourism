@@ -18,25 +18,23 @@ public class Customer {
 	private String emailId;
 	private String country;
 	private String password;
-	private String otp;
 	
 	public Customer() {
 		
 	}
 
 	public Customer(String userName, String gender, String phoneNumber, String emailId, String country,
-			String password, String otp) {
+			String password) {
 		this.userName = userName;
 		this.gender = gender;
 		this.phoneNumber = phoneNumber;
 		this.emailId = emailId;
 		this.country = country;
 		this.password = password;
-		this.otp = otp;
 	}
 
 	public Customer(int customerId, String userName, String gender, String phoneNumber, String emailId, String country,
-			String password, String otp) {
+			String password) {
 		super();
 		this.customerId = customerId;
 		this.userName = userName;
@@ -45,7 +43,6 @@ public class Customer {
 		this.emailId = emailId;
 		this.country = country;
 		this.password = password;
-		this.otp = otp;
 	}
 
 	public int getCustomerId() {
@@ -100,12 +97,5 @@ public class Customer {
 		this.password = password;
 	}
 
-	public String getOtp() {
-		return otp;
-	}
-
-	public void setOtp(String otp) {
-		this.otp = otp;
-	}
 		
 }
