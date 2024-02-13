@@ -307,3 +307,24 @@
 2024-02-13 14:29:10,479 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2024-02-13 14:29:10,479 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2024-02-13 14:29:10,479 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\supri\OneDrive\Desktop\tourism\Backend\Tourism\src\test\resources
+2024-02-13 22:38:52,381 [Worker-13] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-02-13 22:38:55,794 [Worker-13] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ts:Tourism:0.0.1-SNAPSHOT @ C:\Users\yraje\Desktop\tourism\Backend\Tourism\pom.xml.
+2024-02-13 22:39:02,422 [Worker-13] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Tourism/src/main/java
+2024-02-13 22:39:02,423 [Worker-13] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Tourism/src/main/resources
+2024-02-13 22:39:02,438 [Worker-13] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Tourism/src/main/resources
+2024-02-13 22:39:02,452 [Worker-13] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Tourism/src/test/java
+2024-02-13 22:39:03,230 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-02-13 22:39:03,231 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2024-02-13 22:39:03,235 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2024-02-13 22:39:03,257 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2024-02-13 22:39:03,259 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-02-13 22:39:03,259 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2024-02-13 22:39:03,259 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\yraje\Desktop\tourism\Backend\Tourism\src\test\resources
+2024-02-13 22:39:03,573 [Worker-13] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 11 sec
+2024-02-13 22:39:04,647 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-02-13 22:39:04,648 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2024-02-13 22:39:04,653 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2024-02-13 22:39:04,657 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2024-02-13 22:39:04,660 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-02-13 22:39:04,661 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2024-02-13 22:39:04,661 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\yraje\Desktop\tourism\Backend\Tourism\src\test\resources
