@@ -2,8 +2,8 @@
 <div class="body1">
     <div class="body">
         <h1>Register</h1>
-        <form #registrationForm="ngForm" (ngSubmit)="registerSubmit(registrationForm.value, registrationForm)"
-            class="form" novalidate>
+        <form #registrationForm="ngForm" (ngSubmit)="registerSubmit(registrationForm.value, registrationForm)" class="form"
+      novalidate>
             <!-- Username Field -->
             <div class="column1">
                 <div class="input-box">
@@ -66,14 +66,14 @@
                 <div class="input-box">
                     <label>Mobile Number</label>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                    <input type="text" class="form-control" placeholder="Enter MobileNo" name="phoneNumber" ngModel
-                        #phoneNumber="ngModel" required pattern="^\+91 \d{5} \d{5}$" maxlength="16" />
+                    <input type="text" class="form-control" placeholder="Enter MobileNo" name="mobileNumber" ngModel
+                        #mobileNumber="ngModel" required pattern="^\+91 \d{5} \d{5}$" maxlength="16" />
                 </div>
-                <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="error"
+                <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="error"
                     style="color: red;">
-                    <h6 *ngIf="phoneNumber.hasError('required')">Mobile Number is required.</h6>
-                    <h6 *ngIf="phoneNumber.hasError('pattern')">Enter a valid number starting with +91 </h6>
-                    <h6 *ngIf="phoneNumber.hasError('maxlength')">Mobile Number should not exceed 15 characters.</h6>
+                    <h6 *ngIf="mobileNumber.hasError('required')">Mobile Number is required.</h6>
+                    <h6 *ngIf="mobileNumber.hasError('pattern')">Enter a valid number starting with +91 </h6>
+                    <h6 *ngIf="mobileNumber.hasError('maxlength')">Mobile Number should not exceed 15 characters.</h6>
                 </div>
             </div>
 
@@ -112,7 +112,7 @@
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" [disabled]="registrationForm.invalid">
+            <button type="button" (click)="registerSubmit(registrationForm.value, registrationForm)">
                 <h5>Register</h5>
             </button>
 

@@ -13,8 +13,6 @@ import { NgForm } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   
   formError: string = '';
-  password: any;
-  confirmPassword: any;
   customer: any;
   countries: any;
   randomNumber: number;
@@ -54,7 +52,7 @@ export class RegisterComponent implements OnInit {
   registerSubmit(formData: any, form: NgForm) {
     if (
       !formData.userName ||
-      !formData.phoneNumber ||
+      !formData.mobileNumber ||
       !formData.gender ||
       !formData.country ||
       !formData.emailId ||
@@ -68,7 +66,7 @@ export class RegisterComponent implements OnInit {
 
     if (formData.password !== formData.confirmPassword) {
       this.formError = 'Passwords do not match';
-      form.controls['confirmPassword']?.setErrors({ passwordMismatch: true });
+      form.controls['confirmPassword'].setErrors({ passwordMismatch: true });
       return;
     }
 
@@ -77,18 +75,11 @@ export class RegisterComponent implements OnInit {
     this.customer.userName = formData.userName;
     this.customer.gender = formData.gender;
     this.customer.country = formData.country;
-    this.customer.phoneNumber = formData.phoneNumber;
+    this.customer.phoneNumber = formData.mobileNumber;
     this.customer.emailId = formData.emailId;
     this.customer.password = formData.password;
 
     console.log(formData);
-
-    this.service.registerCustomer(this.customer).subscribe((data: any) => {
-      console.log(data);
-      this.router.navigate(['login']);
-    });
-
-    this.toastr.success("Register successful");
 
     this.randomNumber = this.getRandomNumber(100000, 999999);
 

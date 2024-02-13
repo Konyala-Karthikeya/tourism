@@ -9,6 +9,7 @@ export class CustomerService {
 
   isUserLoggedIn: boolean;
   loginStatus: any;
+  
   customer: any;
   otp: number;
 
@@ -35,8 +36,8 @@ export class CustomerService {
     return this.http.get('https://restcountries.com/v3.1/all');
   }
   
-  registerCustomer(customer:any):any{
-    return this.http.post('http://localhost:8085/addCustomer',customer);
+  registerCustomer():any{
+    return this.http.post('http://localhost:8085/addCustomer',this.customer);
   }
  
   customerLogin(emailId:any,password:any){
