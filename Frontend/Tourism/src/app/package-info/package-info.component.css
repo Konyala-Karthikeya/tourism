@@ -1,0 +1,38 @@
+.package-details {
+    display: flex;
+  }
+  
+  .package-image {
+    flex: 1;
+  }
+  
+  .package-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .package-info {
+    flex: 2;
+    padding: 0 20px;
+  }
+  
+  .package-info h2 {
+    margin-top: 0;
+  }
+  
+  .package-info p {
+    margin-bottom: 10px;
+  }
+  
+  .package-info button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .package-info button:hover {
+    background-color: #0056b3;
+  }
+  

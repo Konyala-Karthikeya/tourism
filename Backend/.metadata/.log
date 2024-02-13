@@ -214,7 +214,11 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING
 	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
 	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
 	... 9 more
+<<<<<<< HEAD
 !SESSION 2024-02-12 23:18:16.158 -----------------------------------------------
+=======
+!SESSION 2024-02-12 15:34:25.663 -----------------------------------------------
+>>>>>>> 8a80fd61bca86a182b3b4f789ba3fce423482b68
 eclipse.buildId=4.6.3.M20170301-0400
 java.version=1.8.0_361
 java.vendor=Oracle Corporation
@@ -222,12 +226,21 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
 Framework arguments:  -product org.eclipse.epp.package.jee.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.core.resources 2 10035 2024-02-12 23:18:48.548
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
 
 !ENTRY org.eclipse.core.resources 4 567 2024-02-12 23:18:48.739
 !MESSAGE Workspace restored, but some problems occurred.
 !SUBENTRY 1 org.eclipse.core.resources 4 567 2024-02-12 23:18:48.739
+=======
+!ENTRY org.eclipse.core.resources 2 10035 2024-02-12 15:34:34.677
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.resources 4 567 2024-02-12 15:34:34.843
+!MESSAGE Workspace restored, but some problems occurred.
+!SUBENTRY 1 org.eclipse.core.resources 4 567 2024-02-12 15:34:34.843
+>>>>>>> 8a80fd61bca86a182b3b4f789ba3fce423482b68
 !MESSAGE Could not read metadata for 'Tourism'.
 !STACK 1
 org.eclipse.core.internal.resources.ResourceException: The project description file (.project) for 'Tourism' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
@@ -272,16 +285,26 @@ org.eclipse.core.internal.resources.ResourceException: The project description f
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+<<<<<<< HEAD
 !SUBENTRY 2 org.eclipse.core.resources 4 567 2024-02-12 23:18:48.741
 !MESSAGE The project description file (.project) for 'Tourism' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
 
 !ENTRY org.eclipse.egit.ui 2 0 2024-02-12 23:19:02.269
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\supri'. If this is
+=======
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2024-02-12 15:34:34.845
+!MESSAGE The project description file (.project) for 'Tourism' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-02-12 15:34:49.837
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\hp'. If this is
+>>>>>>> 8a80fd61bca86a182b3b4f789ba3fce423482b68
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2024-02-12 23:19:08.807
 !MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 2.0.4.v20170307-1435
 !STACK 0
@@ -385,6 +408,9 @@ EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 
 !ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2024-02-13 14:27:50.246
+=======
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2024-02-12 15:35:02.776
+>>>>>>> 8a80fd61bca86a182b3b4f789ba3fce423482b68
 !MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 2.0.4.v20170307-1435
 !STACK 0
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1

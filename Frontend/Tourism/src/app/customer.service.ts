@@ -7,26 +7,24 @@ import { Observable, Subject } from 'rxjs';
 })
 export class CustomerService {
 
-  isUserLoggedIn : boolean;
-  loginStatus : any;
+  isUserLoggedIn: boolean;
+  loginStatus: any;
+  customer: any;
+  otp: number;
 
-  customer : any;
-  otp : number;
-
-
-  constructor(private http : HttpClient) {
+  constructor(private http: HttpClient) {
     this.isUserLoggedIn = false;
     this.loginStatus = new Subject();
 
     this.otp = 0;
-    this.customer ={
-      userName:'',
-      gender:'',
-      country:'',
-      phoneNumber:'',
-      emailId:'',
-      password:''
-    }
+    this.customer = {
+      userName: '',
+      gender: '',
+      country: '',
+      phoneNumber: '',
+      emailId: '',
+      password: ''
+    };
   }
 
   sendOtpToCustomer(phoneNumber: string, otp: number): Observable<any> {
@@ -49,23 +47,21 @@ export class CustomerService {
     return this.http.get('http://localhost:8085/sendMail/'+mail+'/'+ message);
   }
 
-setIsUserLoggedIn(){
-   this.isUserLoggedIn = true;
-   this.loginStatus.next(true);
-}
+  setIsUserLoggedIn() {
+    this.isUserLoggedIn = true;
+    this.loginStatus.next(true);
+  }
 
-getIsUserLoggedIn():boolean{
-  return this.isUserLoggedIn;
-}
+  setIsUserLoggedOut() {
+    this.isUserLoggedIn = false;
+    this.loginStatus.next(false);
+  }
 
-getLoginStatus(): any {
-  return this.loginStatus.asObservable();
-}
+  getIsUserLoggedIn(): boolean {
+    return this.isUserLoggedIn;
+  }
 
-setIsUserLoggedOut() {
-  this.isUserLoggedIn = false;
-  this.loginStatus.next(false);
-}
-
-
+  getLoginStatus(): any {
+    return this.loginStatus.asObservable();
+  }
 }

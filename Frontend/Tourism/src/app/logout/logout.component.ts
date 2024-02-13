@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { CustomerService } from '../customer.service';
 import { Router } from '@angular/router';
@@ -6,19 +6,21 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',
-  styleUrl: './logout.component.css'
+  styleUrls: ['./logout.component.css']
 })
-export class LogoutComponent {
+export class LogoutComponent implements OnInit {
 
-  emailId : any;
+  constructor(private router: Router, private service: CustomerService, private toastr: ToastrService) { }
 
-  ngOnInit(){
-    
+  ngOnInit(): void {
+    this.logout();
   }
-  constructor(private router :Router,private toastr : ToastrService,private service : CustomerService){
-  service.setIsUserLoggedOut();
-  this.router.navigate(['login']);
 
+  logout(): void {
+    this.service.setIsUserLoggedOut(); // Update user login status
 
+    this.toastr.success('Logout successful', 'Success'); // Display success message
+
+    this.router.navigate(['login']); // Navigate to login page
   }
 }

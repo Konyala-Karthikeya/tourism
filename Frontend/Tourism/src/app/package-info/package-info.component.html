@@ -1,0 +1,16 @@
+<div class="package-details">
+    <div class="package-image">
+      <img [src]="package.imgsrc" alt="Package Image">
+    </div>
+    <div *ngIf="package">
+        <h2>{{ package.name }}</h2>
+        <p>{{ package.description }}</p>
+        <p><b>Price:</b> ₹{{ package.price }}</p>
+        <p><b>Primary Destination:</b> {{ package.primarydestination }}</p>
+        <p><b>Secondary Destination:</b> {{ package.secondarydestination }}</p>
+        <p><b>Duration:</b> {{ package.duration }}</p>
+        <p><b>Inclusions:</b> {{ package.inclusions }}</p>
+      </div>
+      
+  </div>
+  
