@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class PackagesComponent {
   packages: any;
-  cartProducts: any;
+  cartPackages: any;
 
   constructor() {
-    this.cartProducts = [];
+    this.cartPackages = [];
     this.packages = [
       { id: 1001, name: "Jaipur", description: "Jaipur became known as “The Pink City” when, in 1876, Maharaja Ram Singh had most of the buildings painted pink—the color of hospitality—in preparation for a visit by Britain's Queen Victoria. Today, the city is known for its bazaars, forts, temples, palaces, and wildlife sanctuaries.", price: 21280.00, primarydestination: "Munnar, Alleppey", secondarydestination: "Munnar Spice Plantations, waterfalls, Eravikulam National Park, Mattupetty Dam, Periyar Wildlife Sanctury, Allepy Houseboat Stay, Backwaters, St.Francis Church", duration: "5 Nights/6 Days", inclusions: "Upto 3 stars,Meals,Sightseeing,Transfers,Honeymoon Freebies", imgsrc: "assets/Images/Jaipur.jpg" },
       { id: 1002, name: "Best Selling Goa Trip Package For Friends", description: "", price: 9999.00, primarydestination: "Goa", secondarydestination: "Miramar Beach, Panjim Market, Dona Paula Bay, Basilica Bon of Jesus & Se Cathedral", duration: "3 Nights/4 Days", inclusions: "Upto 3 stars ,Meals, Sightseeing, Stay Included, Transfers", imgsrc: "assets/Images/Goa.jpg" },
@@ -37,9 +37,9 @@ export class PackagesComponent {
     ];
   }
 
-  addToCart(product: any) {
-    this.cartProducts.push(product);
-    localStorage.setItem("cartItems", JSON.stringify(this.cartProducts));
+  addToCart(packages: any) {
+    this.cartPackages.push(packages);
+    localStorage.setItem("cartItems", JSON.stringify(this.cartPackages));
   }
 }
   

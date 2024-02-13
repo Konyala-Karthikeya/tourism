@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { NgxCaptchaModule } from 'ngx-captcha';
 import { Header1Component } from './header1/header1.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { Header1Component } from './header1/header1.component';
     HomeComponent,
     AboutComponent,
     LogoutComponent,
-    Header1Component
+    Header1Component,
+   
   ],
   imports: [
     BrowserModule,
