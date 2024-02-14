@@ -17,6 +17,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 // import { NgxCaptchaModule } from 'ngx-captcha';
 import { Header1Component } from './header1/header1.component';
+import { OtpComponent } from './otp/otp.component';
+import { MybookingsComponent } from './mybookings/mybookings.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -31,7 +34,12 @@ import { Header1Component } from './header1/header1.component';
     AboutComponent,
     LogoutComponent,
     Header1Component,
+
    
+
+    OtpComponent,
+          MybookingsComponent
+
   ],
   imports: [
     BrowserModule,
@@ -41,7 +49,8 @@ import { Header1Component } from './header1/header1.component';
     ToastrModule.forRoot(),
     HttpClientModule,
     // NgxCaptchaModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration()

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-packages',
@@ -9,7 +11,7 @@ export class PackagesComponent {
   packages: any;
   cartPackages: any;
 
-  constructor() {
+  constructor(private router : Router, private service : CustomerService) {
     this.cartPackages = [];
     this.packages = [
       { id: 1001, name: "Jaipur", description: "Jaipur became known as “The Pink City” when, in 1876, Maharaja Ram Singh had most of the buildings painted pink—the color of hospitality—in preparation for a visit by Britain's Queen Victoria. Today, the city is known for its bazaars, forts, temples, palaces, and wildlife sanctuaries.", price: 21280.00, primarydestination: "Munnar, Alleppey", secondarydestination: "Munnar Spice Plantations, waterfalls, Eravikulam National Park, Mattupetty Dam, Periyar Wildlife Sanctury, Allepy Houseboat Stay, Backwaters, St.Francis Church", duration: "5 Nights/6 Days", inclusions: "Upto 3 stars,Meals,Sightseeing,Transfers,Honeymoon Freebies", imgsrc: "assets/Images/Jaipur.jpg" },
@@ -37,9 +39,24 @@ export class PackagesComponent {
     ];
   }
 
-  addToCart(packages: any) {
-    this.cartPackages.push(packages);
-    localStorage.setItem("cartItems", JSON.stringify(this.cartPackages));
-  }
+//   addTomybookings(selectedPackage: any) {
+//     // Clear existing bookings before adding the new one
+//     this.cartPackages = [];
+
+//     // Add the new package to bookings
+//     this.cartPackages.push(selectedPackage);
+
+//     // Store bookings in local storage
+//     localStorage.setItem("cartItems", JSON.stringify(this.cartPackages));
+
+//     // Add the package to bookings service
+//     this.service.addTomybookings(selectedPackage);
+
+//     // Navigate to mybookings page
+//     this.router.navigate(['/mybookings']);
+// }
+
+
+
 }
   

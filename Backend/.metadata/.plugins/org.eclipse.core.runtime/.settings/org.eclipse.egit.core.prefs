@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-GitRepositoriesView.GitDirectories=C\:\\Users\\GOPAL\\OneDrive\\Desktop\\tourism\\.git;C\:\\Users\\supri\\OneDrive\\Desktop\\tourism\\.git;
-GitRepositoriesView.GitDirectories.relative=C\:\\Users\\GOPAL\\OneDrive\\Desktop\\tourism\\.git;C\:\\Users\\supri\\OneDrive\\Desktop\\tourism\\.git;
-=======
-GitRepositoriesView.GitDirectories=E\:\\FSD56\\tourism\\.git;C\:\\Users\\GOPAL\\OneDrive\\Desktop\\tourism\\.git;
-GitRepositoriesView.GitDirectories.relative=E\:\\FSD56\\tourism\\.git;C\:\\Users\\GOPAL\\OneDrive\\Desktop\\tourism\\.git;
->>>>>>> 8a80fd61bca86a182b3b4f789ba3fce423482b68
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=8a80fd61bca86a182b3b4f789ba3fce423482b68
+GitRepositoriesView.GitDirectories=C\:\\Users\\yraje\\Desktop\\tourism\\.git;E\:\\FSD56\\tourism\\.git;C\:\\Users\\GOPAL\\OneDrive\\Desktop\\tourism\\.git;
+GitRepositoriesView.GitDirectories.relative=C\:\\Users\\yraje\\Desktop\\tourism\\.git;E\:\\FSD56\\tourism\\.git;C\:\\Users\\GOPAL\\OneDrive\\Desktop\\tourism\\.git;
 eclipse.preferences.version=1

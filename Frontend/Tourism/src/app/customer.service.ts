@@ -6,16 +6,21 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CustomerService {
+  cartPackages: any;
+  getIsUserLogged() {
+    throw new Error('Method not implemented.');
+  }
 
   isUserLoggedIn: boolean;
   loginStatus: any;
+  // cartpackages : any;
   customer: any;
   otp: number;
 
   constructor(private http: HttpClient) {
     this.isUserLoggedIn = false;
     this.loginStatus = new Subject();
-
+    // this.cartpackages=[];
     this.otp = 0;
     this.customer = {
       userName: '',
@@ -35,8 +40,8 @@ export class CustomerService {
     return this.http.get('https://restcountries.com/v3.1/all');
   }
   
-  registerCustomer(customer:any):any{
-    return this.http.post('http://localhost:8085/addCustomer',customer);
+  registerCustomer():any{
+    return this.http.post('http://localhost:8085/addCustomer',this.customer);
   }
  
   customerLogin(emailId:any,password:any){
@@ -46,6 +51,10 @@ export class CustomerService {
   sendMail(mail : string, message : string){
     return this.http.get('http://localhost:8085/sendMail/'+mail+'/'+ message);
   }
+
+  // addTomybookings(Package: any) {
+  //   this.cartpackages.push(Package);
+  // }
 
   setIsUserLoggedIn() {
     this.isUserLoggedIn = true;
