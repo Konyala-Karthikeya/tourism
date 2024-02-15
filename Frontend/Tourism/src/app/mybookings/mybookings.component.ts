@@ -76,6 +76,17 @@ export class MybookingsComponent implements OnInit, OnDestroy {
       this.toastr.error('Please select a date.', 'Error'); // Display toastr error message
       return;
     }
+     // Get the current date
+     const currentDate = new Date();
+  
+     // Convert the bookingDate string to a Date object
+     const selectedDate = new Date(this.bookingDate);
+   
+     // Check if the selected date is before the current date
+     if (selectedDate < currentDate) {
+       this.toastr.error('Selected date cannot be in the past.', 'Error');
+       return;
+     }
     // Calculate total from the package price
     if (this.selectedPackage) {
       this.total = this.selectedPackage.price;
