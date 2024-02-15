@@ -1,0 +1,23 @@
+.booking-details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .booking-details .package-info {
+    margin-left: 20px; /* Adjust the margin as needed */
+  }
+  
+  .booking-details .package-info h3 {
+    margin-top: 0;
+  }
+  
+  .booking-details .package-info p {
+    margin: 5px 0;
+  }
+  
+  .booking-details .package-info img {
+    max-width: 200px; /* Adjust the maximum width of the image */
+    height: auto;
+  }
+  

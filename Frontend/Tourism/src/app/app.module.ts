@@ -15,11 +15,12 @@ import { RouterModule } from '@angular/router';
 import { LogoutComponent } from './logout/logout.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
-// import { NgxCaptchaModule } from 'ngx-captcha';
 import { Header1Component } from './header1/header1.component';
 import { OtpComponent } from './otp/otp.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PaymentComponent } from './payment/payment.component';
+// import { NgxCaptchaModule } from 'ngx-captcha';
 
 
 @NgModule({
@@ -34,11 +35,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AboutComponent,
     LogoutComponent,
     Header1Component,
-
-   
-
     OtpComponent,
-          MybookingsComponent
+    MybookingsComponent,
+    PaymentComponent,
+    // NgxCaptchaModule
 
   ],
   imports: [
@@ -48,7 +48,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule,
     ToastrModule.forRoot(),
     HttpClientModule,
-    // NgxCaptchaModule,
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],

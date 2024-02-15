@@ -1,12 +1,117 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-mybookings',
   templateUrl: './mybookings.component.html',
-  styleUrl: './mybookings.component.css'
+  styleUrls: ['./mybookings.component.css']
 })
-export class MybookingsComponent {
+export class MybookingsComponent implements OnInit, OnDestroy {
+  selectedPackage: any;
+  showPaymentDetails: boolean = false;
+  bookingDate: string = ''; // Define bookingDate property with an initial value
 
-  
+  // Initialize properties with default values
+  total: number = 0;
+  tax: number = 0;
+  totalInclusive: number = 0;
+
+  routerSubscription: any;
+
+  constructor(private toastr: ToastrService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.loadSelectedPackage(); // Load selected package during initialization
+
+    // Subscribe to router events to detect navigation back to this component
+    this.routerSubscription = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      // Load selected package when the component becomes active again
+      this.loadSelectedPackage();
+    });
+  }
+
+  ngOnDestroy(): void {
+    // Unsubscribe from router events to avoid memory leaks
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
+
+    // Check if localStorage is available before using it
+    if (this.isLocalStorageAvailable()) {
+      // Clear selected package data when leaving the My Bookings page
+      localStorage.removeItem('selectedPackage');
+    }
+  }
+
+  loadSelectedPackage(): void {
+    if (this.isLocalStorageAvailable()) {
+      const selectedPackageString = localStorage.getItem('selectedPackage');
+      if (selectedPackageString) {
+        this.selectedPackage = JSON.parse(selectedPackageString);
+      }
+    } else {
+      console.error('localStorage is not available.');
+    }
+  }
+
+  isLocalStorageAvailable(): boolean {
+    try {
+      const storage = window.localStorage;
+      const testKey = '__storage_test__';
+      storage.setItem(testKey, testKey);
+      storage.removeItem(testKey);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  calculatePayment() {
+    // Validate if date is selected
+    if (!this.bookingDate) {
+      this.toastr.error('Please select a date.', 'Error'); // Display toastr error message
+      return;
+    }
+    // Calculate total from the package price
+    if (this.selectedPackage) {
+      this.total = this.selectedPackage.price;
+    } else {
+      console.error('No package selected.'); // Handle error if no package is selected
+      return;
+    }
+
+    // Calculate tax (5%)
+    this.tax = this.total * 0.05;
+
+    // Calculate total inclusive of tax
+    this.totalInclusive = this.total + this.tax;
+
+    this.showPaymentDetails = true;
+  }
+
+
+proceedToPayment() {
+  // Store booking details in localStorage before navigating to payment page
+  localStorage.setItem('bookingDetails', JSON.stringify({
+    selectedPackage: this.selectedPackage,
+    bookingDate: this.bookingDate,
+    total: this.total,
+    tax: this.tax,
+    totalInclusive: this.totalInclusive
+  }));
+
+  // Navigate to the payment page
+  this.router.navigate(['payment']); // Replace '/payment' with the path to your payment page component
 }
+
+clearStoredData() {
+  // Clear stored data from localStorage
+  localStorage.removeItem('bookingDetails');
+}
+}
+
+

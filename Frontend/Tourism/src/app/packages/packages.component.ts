@@ -37,7 +37,15 @@ export class PackagesComponent {
     
     
     ];
+    
   }
+  bookNow(selectedPackage: any) {
+    // Store the selected package in localStorage or a service
+    localStorage.setItem('selectedPackage', JSON.stringify(selectedPackage));
+    // Navigate to My Bookings component
+    this.router.navigate(['mybookings']);
+  }
+  
 
 //   addTomybookings(selectedPackage: any) {
 //     // Clear existing bookings before adding the new one
