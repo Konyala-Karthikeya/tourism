@@ -11,6 +11,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { PackageInfoComponent } from './package-info/package-info.component'; // Import PackageInfoComponent
 import { OtpComponent } from './otp/otp.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
+import { AdminComponent } from './admin/admin.component';
+import { CustomersComponent } from './customers/customers.component';
 
 const routes: Routes = [
   { path: '' , component: HomeComponent},
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'package/:id', component: PackageInfoComponent }, // Route for package info with ID parameter
   { path: 'otp',        canActivate:[authGuard],   component:OtpComponent },
   { path: 'mybookings', component: MybookingsComponent },
+  { path: 'admin', canActivate:[authGuard], component:AdminComponent},
+  { path: 'customers', canActivate:[authGuard], component:CustomersComponent}
 ];
 
 @NgModule({

@@ -52,6 +52,9 @@ export class CustomerService {
     return this.http.get('http://localhost:8085/sendMail/'+mail+'/'+ message);
   }
 
+  getAllCustomers():any {
+    return this.http.get('http://localhost:8085/getCustomers');
+  }
   // addTomybookings(Package: any) {
   //   this.cartpackages.push(Package);
   // }

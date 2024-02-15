@@ -1,6 +1,6 @@
 // login.component.ts
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CustomerService } from '../customer.service';
@@ -12,26 +12,23 @@ import { CustomerService } from '../customer.service';
 })
 export class LoginComponent implements OnInit {
   siteKey: string = "6LewVG8pAAAAADGjs0pIN7d5p0pI6eK4QJMnpDsh";
-  aFormGroup: FormGroup;
+  loginForm: NgForm;
+  showPassword: boolean = false;
+  protected aFormGroup: FormGroup;
+  customer : any;
 
-  constructor(
-    private router: Router,
-    private toastr: ToastrService,
-    private service: CustomerService,
-    private formBuilder: FormBuilder
-  ) {
+  constructor(private router: Router, private toastr: ToastrService, private service : CustomerService, private formBuilder: FormBuilder) {
+    this.loginForm = {} as NgForm;
     this.aFormGroup = this.formBuilder.group({
-      recaptcha: ['']
+      recaptcha: ['', Validators.required]
     });
   }
 
   ngOnInit(){
-    // this.aFormGroup = this.formBuilder.group({
-    //   recaptcha: ['', Validators.required]
-    // });
+
   }
 
-  async loginSubmit(formData: any) {
+  async loginSubmit(formData: any,form: NgForm) {
     // if (!this.aFormGroup.controls['recaptcha'].valid) {
     //   this.toastr.error('Please complete the captcha');
     //   return;
@@ -42,19 +39,32 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    try {
-      const customer = await this.service.customerLogin(formData.emailId, formData.password);
-      if (customer != null) {
+    console.log(formData.emailId);
+    console.log(formData.password);
+
+    if (formData.emailId == 'admin@gmail.com' && formData.password == 'Admin@123') {
+      this.service.setIsUserLoggedIn();
+      localStorage.setItem('emailId', formData.emailId);
+      this.router.navigate(['admin']);
+    } else {
+      this.customer = null;
+    }
+    await this.service.customerLogin(formData.emailId, formData.password).then((data: any) => {
+      console.log(data);
+      this.customer = data;
+      localStorage.setItem("userid",data.userId);
+      localStorage.setItem("emailId",data.emailId);
+    });
+      if (this.customer != null) {
         this.service.setIsUserLoggedIn();
-        this.toastr.success(" login Success!!");
+        this.toastr.success("Customer login Success!!");
         this.router.navigate(['packages']);
       } else {
         this.toastr.error("Invalid Login credentials");
       }
-    } catch (error) {
-      console.error('Error during login:', error);
-      this.toastr.error("An error occurred during login. Please try again later.");
-    }
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }
-

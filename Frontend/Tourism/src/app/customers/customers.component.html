@@ -1,0 +1,29 @@
+<h1 align="center">Customers Data</h1>
+<br/>
+<div align="center" class="container">
+    <table class="table table-hover table-striped table-sm table-bordered">
+        <thead>
+            <tr align="center">
+                <th class="bg-info text-white">Customer_Id</th>
+                <th class="bg-info text-white">User_Name</th>
+                <th class="bg-info text-white">Gender</th>
+                <th class="bg-info text-white">Phone_Number</th>
+                <th class="bg-info text-white">Email-Id</th>
+                <th class="bg-info text-white">Country</th>
+                <th class="bg-info text-white">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customers" align="center">
+                <td>{{customer.customerId}}</td>
+                <td>{{customer.userName}}</td>
+                <td>{{customer.gender}}</td>
+                <td>{{customer.phoneNumber}}</td>
+                <td>{{customer.emailId}}</td>
+                <td>{{customer.country}}</td>
+                <!-- <td> <button (click)="deleteEmployee(emp)" class="glyphicon glyphicon-trash"></button> </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+

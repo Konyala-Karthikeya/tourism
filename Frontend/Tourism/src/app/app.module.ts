@@ -20,6 +20,8 @@ import { Header1Component } from './header1/header1.component';
 import { OtpComponent } from './otp/otp.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminComponent } from './admin/admin.component';
+import { CustomersComponent } from './customers/customers.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
    
 
     OtpComponent,
-          MybookingsComponent
+          MybookingsComponent,
+          AdminComponent,
+          CustomersComponent
 
   ],
   imports: [
