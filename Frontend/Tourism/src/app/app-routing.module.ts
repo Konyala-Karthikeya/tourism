@@ -14,6 +14,7 @@ import { MybookingsComponent } from './mybookings/mybookings.component';
 import { AdminComponent } from './admin/admin.component';
 import { CustomersComponent } from './customers/customers.component';
 import { PaymentComponent } from './payment/payment.component';
+import { SearchcustomerComponent } from './searchcustomer/searchcustomer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to home page if no path provided
@@ -29,7 +30,8 @@ const routes: Routes = [
   { path: 'customers', canActivate:[authGuard], component:CustomersComponent},
   { path: 'otp', canActivate: [authGuard], component: OtpComponent },
   { path: 'mybookings', component: MybookingsComponent }, // Route for My Bookings component
-  { path: 'payment', component: PaymentComponent } // Route for My Bookings component
+  { path: 'payment', component: PaymentComponent }, // Route for My Bookings component
+  { path: 'searchCustomer', canActivate:[authGuard], component:SearchcustomerComponent}
 ];
 
 @NgModule({

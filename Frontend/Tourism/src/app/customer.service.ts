@@ -55,6 +55,10 @@ export class CustomerService {
   getAllCustomers():any {
     return this.http.get('http://localhost:8085/getCustomers');
   }
+
+  getCustomerById(customerId:any):any{
+    return this.http.get('http://localhost:8085/getCustomerById/' + customerId)
+  }
   // addTomybookings(Package: any) {
   //   this.cartpackages.push(Package);
   // }

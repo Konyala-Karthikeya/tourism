@@ -19,13 +19,11 @@ import { Header1Component } from './header1/header1.component';
 import { OtpComponent } from './otp/otp.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-<<<<<<< HEAD
 import { AdminComponent } from './admin/admin.component';
 import { CustomersComponent } from './customers/customers.component';
-=======
+import { SearchcustomerComponent } from './searchcustomer/searchcustomer.component';
 import { PaymentComponent } from './payment/payment.component';
 // import { NgxCaptchaModule } from 'ngx-captcha';
->>>>>>> 0500d62cd6c62e3146f3b350e7f8e944f5abb95f
 
 
 @NgModule({
@@ -41,15 +39,12 @@ import { PaymentComponent } from './payment/payment.component';
     LogoutComponent,
     Header1Component,
     OtpComponent,
-<<<<<<< HEAD
-          MybookingsComponent,
-          AdminComponent,
-          CustomersComponent
-=======
     MybookingsComponent,
+    AdminComponent,
+    CustomersComponent,
+    SearchcustomerComponent,
     PaymentComponent,
     // NgxCaptchaModule
->>>>>>> 0500d62cd6c62e3146f3b350e7f8e944f5abb95f
 
   ],
   imports: [
