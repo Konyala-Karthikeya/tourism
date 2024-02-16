@@ -29,9 +29,7 @@
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                 <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" placeholder="Enter password"
                   name="password" ngModel #password="ngModel" required />
-                <span class="input-group-addon" (click)="togglePasswordVisibility()">
-                  <i class="glyphicon"
-                    [ngClass]="{'glyphicon-eye-open': showPassword, 'glyphicon-eye-close': !showPassword}"></i>
+                <span (click)="togglePasswordVisibility()">
                 </span>
               </div>
               <h6 *ngIf="password.invalid && (password.dirty || password.touched || loginForm.submitted)" class="error"
@@ -64,7 +62,3 @@
       <div *ngIf="password.errors?.['minlength'] && password.touched" style="color: red;">Please Enter Atleast 2 Characters</div> -->
     </div>
   </div>
-<<<<<<< HEAD
-=======
- 
->>>>>>> 0500d62cd6c62e3146f3b350e7f8e944f5abb95f
