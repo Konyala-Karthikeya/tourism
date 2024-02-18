@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="tour.name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input type="number" class="form-control" id="price" [(ngModel)]="tour.price" name="price" required>
+    </div>
+    <div class="form-group">
+      <label for="duration">Duration:</label>
+      <input type="text" class="form-control" id="duration" [(ngModel)]="tour.duration" name="duration" required>
+    </div>
+    <div class="form-group">
+      <label for="includes">Includes:</label>
+      <textarea class="form-control" id="includes" [(ngModel)]="tour.includes" name="includes" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="file">Image:</label>
+      <input type="file" class="form-control" id="file" (change)="onFileChange($event)" name="file" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  

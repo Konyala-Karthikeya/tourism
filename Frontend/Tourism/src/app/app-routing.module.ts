@@ -15,6 +15,8 @@ import { AdminComponent } from './admin/admin.component';
 import { CustomersComponent } from './customers/customers.component';
 import { PaymentComponent } from './payment/payment.component';
 import { SearchcustomerComponent } from './searchcustomer/searchcustomer.component';
+import { AddtourComponent } from './addtour/addtour.component';
+import { TourinfoComponent } from './tourinfo/tourinfo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to home page if no path provided
@@ -31,7 +33,9 @@ const routes: Routes = [
   { path: 'otp', canActivate: [authGuard], component: OtpComponent },
   { path: 'mybookings', component: MybookingsComponent }, // Route for My Bookings component
   { path: 'payment', component: PaymentComponent }, // Route for My Bookings component
-  { path: 'searchCustomer', canActivate:[authGuard], component:SearchcustomerComponent}
+  { path: 'searchCustomer', canActivate:[authGuard], component:SearchcustomerComponent},
+  { path: 'addtour', canActivate:[authGuard], component:AddtourComponent},
+  { path: 'tourinfo', canActivate:[authGuard], component:TourinfoComponent}
 ];
 
 @NgModule({

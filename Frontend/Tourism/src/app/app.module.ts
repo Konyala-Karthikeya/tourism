@@ -23,6 +23,8 @@ import { AdminComponent } from './admin/admin.component';
 import { CustomersComponent } from './customers/customers.component';
 import { SearchcustomerComponent } from './searchcustomer/searchcustomer.component';
 import { PaymentComponent } from './payment/payment.component';
+import { AddtourComponent } from './addtour/addtour.component';
+import { TourinfoComponent } from './tourinfo/tourinfo.component';
 // import { NgxCaptchaModule } from 'ngx-captcha';
 
 
@@ -44,6 +46,8 @@ import { PaymentComponent } from './payment/payment.component';
     CustomersComponent,
     SearchcustomerComponent,
     PaymentComponent,
+    AddtourComponent,
+    TourinfoComponent,
     // NgxCaptchaModule
 
   ],

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { filter } from 'rxjs/operators';
+import { TourService } from '../tour.service';
 
 @Component({
   selector: 'app-mybookings',
@@ -20,7 +21,7 @@ export class MybookingsComponent implements OnInit, OnDestroy {
 
   routerSubscription: any;
 
-  constructor(private toastr: ToastrService, private router: Router) { }
+  constructor(private toastr: ToastrService, private router: Router, private service: TourService) { }
 
   ngOnInit(): void {
     this.loadSelectedPackage(); // Load selected package during initialization
