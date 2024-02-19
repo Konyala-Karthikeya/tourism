@@ -35,7 +35,8 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent }, // Route for My Bookings component
   { path: 'searchCustomer', canActivate:[authGuard], component:SearchcustomerComponent},
   { path: 'addtour', canActivate:[authGuard], component:AddtourComponent},
-  { path: 'tourinfo', canActivate:[authGuard], component:TourinfoComponent}
+  { path: 'tourinfo',component:TourinfoComponent}
+  // { path: 'tourinfo', canActivate:[authGuard], component:TourinfoComponent}
 ];
 
 @NgModule({

@@ -26,6 +26,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { AddtourComponent } from './addtour/addtour.component';
 import { TourinfoComponent } from './tourinfo/tourinfo.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { NgxCaptchaModule } from 'ngx-captcha';
 // import { NgxCaptchaModule } from 'ngx-captcha';
 
 
@@ -50,7 +51,6 @@ import { WelcomeComponent } from './welcome/welcome.component';
     AddtourComponent,
     TourinfoComponent,
     WelcomeComponent,
-    // NgxCaptchaModule
 
   ],
   imports: [
@@ -61,7 +61,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
     ToastrModule.forRoot(),
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxCaptchaModule
+
   ],
   providers: [
     provideClientHydration()
