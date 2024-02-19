@@ -18,9 +18,10 @@ import { SearchcustomerComponent } from './searchcustomer/searchcustomer.compone
 import { AddtourComponent } from './addtour/addtour.component';
 import { TourinfoComponent } from './tourinfo/tourinfo.component';
 import { ProfileComponent } from './profile/profile.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', component:HomeComponent }, // Redirect to home page if no path provided
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
@@ -42,10 +43,10 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent }, // Route for My Bookings component
   { path: 'searchCustomer', canActivate:[authGuard], component:SearchcustomerComponent},
   { path: 'addtour', canActivate:[authGuard], component:AddtourComponent},
-  { path: 'tourinfo',component:TourinfoComponent}
-  // { path: 'tourinfo', canActivate:[authGuard], component:TourinfoComponent}
-
+  { path: 'tourinfo', canActivate:[authGuard], component:TourinfoComponent},
+  { path: 'welcome', canActivate:[authGuard], component:WelcomeComponent}
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
