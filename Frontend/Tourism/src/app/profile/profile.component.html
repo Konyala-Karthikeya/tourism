@@ -1,0 +1,46 @@
+<form #profileForm="ngForm" (ngSubmit)="updateProfile(profileForm.value)" class="form" novalidate>
+    <!-- Username Field -->
+    <div class="input-box">
+        <label>User Name</label>
+        <input type="text" class="form-control" placeholder="Enter Username" name="userName" [(ngModel)]="userData.userName" required />
+    </div>
+
+    <!-- Gender Field -->
+    <div class="input-box">
+        <label>Gender</label>
+        <select name="gender" class="form-control" [(ngModel)]="userData.gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+
+    <!-- Country Field -->
+    <div class="input-box">
+        <label>Country</label>
+        <select name="country" class="form-control" [(ngModel)]="userData.country" required>
+            <option *ngFor="let country of countries" [value]="country.name.common">{{ country.name.common }}</option>
+        </select>
+    </div>
+
+    <!-- Email Field -->
+    <div class="input-box">
+        <label>Email</label>
+        <input type="email" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="userData.emailId" required />
+    </div>
+
+    <!-- Mobile Number Field -->
+    <div class="input-box">
+        <label>Mobile Number</label>
+        <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="mobileNumber" [(ngModel)]="userData.phoneNumber" required />
+    </div>
+
+    <!-- Password Field -->
+    <div class="input-box">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="Enter Password" name="password" [(ngModel)]="userData.password" required />
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">Update Profile</button>
+</form>

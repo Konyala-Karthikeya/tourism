@@ -7,6 +7,8 @@ import { Observable, Subject } from 'rxjs';
 })
 export class CustomerService {
   cartPackages: any;
+  loggedInUserEmail: any;
+
   getIsUserLogged() {
     throw new Error('Method not implemented.');
   }
@@ -63,7 +65,18 @@ export class CustomerService {
   //   this.cartpackages.push(Package);
   // }
 
-  setIsUserLoggedIn() {
+  updateCustomerProfile(customerData: any): Observable<any> {
+    return this.http.put('http://localhost:8085/updateCustomer', customerData);
+  }
+
+  getLoggedInUser(): Observable<any> {
+    console.log('Fetching logged-in user data for email:', this.loggedInUserEmail);
+    return this.http.get<any>('http://localhost:8085/getCustomerByEmail/' + this.loggedInUserEmail);
+  }
+  
+
+
+  setIsUserLoggedIn() { 
     this.isUserLoggedIn = true;
     this.loginStatus.next(true);
   }
