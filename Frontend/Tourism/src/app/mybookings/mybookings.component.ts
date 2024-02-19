@@ -124,7 +124,7 @@ proceedToPayment() {
     description :'Sample Rozorpay demo',
     currency :'INR',
     amount :this.totalInclusive * 100, 
-    name : 'Ajay',
+    name : 'Explore-Era',
     key : 'rzp_test_AwJmjsOGm7AicJ',
     image:'https://cdn-icons-png.flaticon.com/512/1688/1688408.png',
     prefill :{
