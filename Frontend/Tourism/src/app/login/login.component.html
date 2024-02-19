@@ -1,6 +1,7 @@
 <app-header></app-header>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <script src="https://accounts.google.com/gsi/client"></script> -->
 </head>
 <!-- login.component.html -->
 <div class="login">
@@ -39,19 +40,27 @@
               <br />
             </td>
           </tr>
-          <!-- <tr>
+           <tr>
             <td>
-              <form [formGroup]="aFormGroup">
-                <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha"></ngx-recaptcha2>
-              </form>
+              <!-- <form [formGroup]="aFormGroup">
+        <ngx-recaptcha2 #captchaElem
+          [siteKey]="siteKey"
+          formControlName="recaptcha">
+        </ngx-recaptcha2>
+      </form> -->
             </td>
-          </tr> -->
+          </tr> 
           <tr>
             <td>
               <button type="button" (click)="loginSubmit(loginForm.value, loginForm)">
                 <h5>Login</h5>
               </button>
               New User ?<a routerLink="/register">Register</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div id="google-btn"></div>
             </td>
           </tr>
         </table>
