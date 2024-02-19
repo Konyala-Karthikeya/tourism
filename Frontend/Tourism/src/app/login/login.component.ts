@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
       if (this.customer != null) {
         this.service.setIsUserLoggedIn();
         this.toastr.success("Customer login Success!!");
-        this.router.navigate(['packages']);
+        this.router.navigate(['welcome']);
       } else {
         this.toastr.error("Invalid Login credentials");
       }
