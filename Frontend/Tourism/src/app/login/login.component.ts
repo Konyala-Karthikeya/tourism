@@ -1,5 +1,4 @@
 // login.component.ts
-declare var google: any;
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -25,42 +24,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.aFormGroup = this.formBuilder.group({
-      recaptcha: ['', Validators.required]
-    });
+  ngOnInit(){
 
-    google.accounts.id.initialize({
-    client_id:'317949943993-jkvtflfkkvnak55c7phm0pnlmpgvb6v4.apps.googleusercontent.com',
-    callback: (resp :any)=>this.handleLogin(resp)
-      
-    
-
-    });
-
-    google.accounts.id.renderButton(document.getElementById("google-btn"),{
-    theme :'filled_blue',
-    size : 'large',
-    shape:'rectangle',
-    width:350
-    })
   }
-
-  private decodeToken(token:string){
-    return JSON.parse(atob(token.split(".")[1]));
-  }
-
- handleLogin(response :any){
-  console.log("working");
-  if(response){
-    const payLoad = this.decodeToken(response.credential)
-    sessionStorage.setItem("loggedInUser",JSON.stringify(payLoad));
-    localStorage.setItem("email",payLoad.email);
-    this.service.setIsUserLoggedIn();
-    this.router.navigate(['tourinfo']);
-  }
-
- }
 
   async loginSubmit(formData: any,form: NgForm) {
     // if (!this.aFormGroup.controls['recaptcha'].valid) {
@@ -92,7 +58,7 @@ export class LoginComponent implements OnInit {
       if (this.customer != null) {
         this.service.setIsUserLoggedIn();
         this.toastr.success("Customer login Success!!");
-        this.router.navigate(['tourinfo']);
+        this.router.navigate(['packages']);
       } else {
         this.toastr.error("Invalid Login credentials");
       }
