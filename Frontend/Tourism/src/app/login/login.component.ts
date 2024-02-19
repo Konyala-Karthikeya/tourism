@@ -94,6 +94,7 @@ export class LoginComponent implements OnInit {
         this.toastr.success("Customer login Success!!");
         this.router.navigate(['welcome']);
 
+        this.router.navigate(['packages']);
       } else {
         this.toastr.error("Invalid Login credentials");
       }
