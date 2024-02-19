@@ -1,3 +1,4 @@
+declare var Razorpay:any;
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -117,7 +118,42 @@ proceedToPayment() {
   }));
 
   // Navigate to the payment page
-  this.router.navigate(['payment']); // Replace '/payment' with the path to your payment page component
+  // this.router.navigate(['payment']);
+
+  const RazorpayOptions = {
+    description :'Sample Rozorpay demo',
+    currency :'INR',
+    amount :this.totalInclusive * 100, 
+    name : 'Ajay',
+    key : 'rzp_test_AwJmjsOGm7AicJ',
+    image:'https://cdn-icons-png.flaticon.com/512/1688/1688408.png',
+    prefill :{
+      name:'Ajay Kumar',
+      email:'pasumarthyajaykumar@gmail.com',
+      phone :'8309926027'
+    },
+    theme:{
+      color:'#f37254'
+    },
+    modal :{
+      ondismiss :()=>{
+        console.log('dismissed');
+      }
+    }
+
+  }
+  const successCallback=(paymentid :any)=>{
+    console.log("sucess");
+  }
+  const failureCallback=(e:any)=>{
+    console.log("failure");
+    console.log(e);
+  }
+  Razorpay.open(RazorpayOptions,successCallback,failureCallback);
+  // this.goToProducts();
+  // setTimeout(() => {
+  //   this.router.navigate(['statuspage']);
+  // }, 5000);
 }
 
 clearStoredData() {
