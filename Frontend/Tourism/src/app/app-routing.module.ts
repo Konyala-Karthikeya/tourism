@@ -37,11 +37,18 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
   { path: 'searchCustomer', canActivate: [authGuard], component: SearchcustomerComponent },
   { path: 'addtour', canActivate: [authGuard], component: AddtourComponent },
-  { path: 'tourinfo', canActivate: [authGuard], component: TourinfoComponent }
-];
+  { path: 'tourinfo', canActivate: [authGuard], component: TourinfoComponent },
+  { path: 'mybookings', component: MybookingsComponent }, // Route for My Bookings component
+  { path: 'payment', component: PaymentComponent }, // Route for My Bookings component
+  { path: 'searchCustomer', canActivate:[authGuard], component:SearchcustomerComponent},
+  { path: 'addtour', canActivate:[authGuard], component:AddtourComponent},
+  { path: 'tourinfo',component:TourinfoComponent}
+  // { path: 'tourinfo', canActivate:[authGuard], component:TourinfoComponent}
 
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

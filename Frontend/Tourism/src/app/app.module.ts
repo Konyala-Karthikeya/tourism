@@ -31,6 +31,8 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { WelcomeComponent } from './welcome/welcome.component';
 
+
+import { NgxCaptchaModule } from 'ngx-captcha';
 // import { NgxCaptchaModule } from 'ngx-captcha';
 
 
@@ -62,6 +64,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
     // NgxCaptchaModule
 
+
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
     ToastrModule.forRoot(),
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxCaptchaModule
+
   ],
   providers: [
     provideClientHydration()
