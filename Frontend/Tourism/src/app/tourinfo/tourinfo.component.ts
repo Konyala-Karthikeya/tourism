@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-tourinfo',
   templateUrl: './tourinfo.component.html',
-  styleUrl: './tourinfo.component.css'
+  styleUrls: ['./tourinfo.component.css']
 })
 export class TourinfoComponent implements OnInit {
   tours: Tour[] = [];
@@ -28,8 +28,10 @@ export class TourinfoComponent implements OnInit {
     );
   }
 
-  bookNow() {
-    // Navigate to the 'mybookings' page
-    this.router.navigate(['/mybookings']);
+  bookNow(selectedPackage: any) {
+    // Store the selected package in localStorage or a service
+    localStorage.setItem('selectedPackage', JSON.stringify(selectedPackage));
+    // Navigate to My Bookings component
+    this.router.navigate(['mybookings']);
   }
 }

@@ -8,12 +8,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  userData: any = {}; // Initialize userData as an empty object
-  countries: any[] = []; // Declare countries array
+  userData: any = {};
+  countries: any[] = [];
 
-  constructor(private service: CustomerService, private toastr: ToastrService) {
-    this.userData ={};
-  }
+  constructor(private service: CustomerService, private toastr: ToastrService) {}
 
   ngOnInit(): void {
     // Fetch user data when the component initializes
@@ -23,18 +21,22 @@ export class ProfileComponent implements OnInit {
   }
 
   fetchUserData() {
-    this.service.getLoggedInUser().subscribe((data: any) => {
-      console.log('User data:', data);
-      if (data) {
-        this.userData = data;
-      } else {
-        console.warn('User data not available');
-        // You may choose to set some default values for userData here
+    this.service.getLoggedInUser().subscribe(
+      (data: any) => {
+        console.log('User data:', data);
+        if (data) {
+          this.userData = data;
+          // User data is available, proceed with other actions if needed
+        } else {
+          console.warn('User data not available');
+          // You may choose to set some default values for userData here
+        }
+      },
+      (error: any) => {
+        console.error('Failed to fetch user data:', error);
+        this.toastr.error('Failed to fetch user data. Please try again.');
       }
-    }, (error: any) => {
-      console.error('Failed to fetch user data:', error);
-      this.toastr.error('Failed to fetch user data. Please try again.');
-    });
+    );
   }
 
   fetchCountries() {

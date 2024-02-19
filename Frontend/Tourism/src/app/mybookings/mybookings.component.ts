@@ -55,7 +55,7 @@ export class MybookingsComponent implements OnInit, OnDestroy {
         this.selectedPackage = JSON.parse(selectedPackageString);
       }
     } else {
-      console.error('localStorage is not available.');
+      // console.error('localStorage is not available.');
     }
   }
 

@@ -4,6 +4,23 @@
   <!-- Package details -->
   <div class="package-info">
     <div class="image">
+      <img [src]="selectedPackage.base64Image" alt="Package Image">
+    </div>
+    <div class="details">
+      <h3>{{ selectedPackage.name }}</h3>
+      <p><b>Price:</b> ₹{{ selectedPackage.price }}</p>
+      <p><b>Duration:</b> {{ selectedPackage.duration }}</p>
+      <p><b>Inclusions:</b> {{ selectedPackage.includes }}</p>
+      <!-- Add more fields as needed -->
+    </div>
+  </div>
+</div>
+
+<!-- static data 
+  <div *ngIf="selectedPackage" class="booking-details">
+  Package details
+  <div class="package-info">
+    <div class="image">
       <img [src]="selectedPackage.imgsrc" alt="Package Image">
     </div>
     <div class="details">
@@ -11,10 +28,10 @@
       <p><b>Price:</b> ₹{{ selectedPackage.price }}</p>
       <p><b>Duration:</b> {{ selectedPackage.duration }}</p>
       <p><b>Inclusions:</b> {{ selectedPackage.inclusions }}</p>
-      <!-- Add more fields as needed -->
+      Add more fields as needed
     </div>
   </div>
-</div>
+</div> -->
 
 <div *ngIf="!selectedPackage" class="no-booking-message">
   <p>No booking selected.</p>
