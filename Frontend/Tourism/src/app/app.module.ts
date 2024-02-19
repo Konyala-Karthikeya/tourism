@@ -25,12 +25,12 @@ import { SearchcustomerComponent } from './searchcustomer/searchcustomer.compone
 import { PaymentComponent } from './payment/payment.component';
 import { AddtourComponent } from './addtour/addtour.component';
 import { TourinfoComponent } from './tourinfo/tourinfo.component';
-<<<<<<< HEAD
+
 import { ProfileComponent } from './profile/profile.component';
 
-=======
+
 import { WelcomeComponent } from './welcome/welcome.component';
->>>>>>> 1a4d4682d2915a71e7af86e49f50c6fa9851c0eb
+
 // import { NgxCaptchaModule } from 'ngx-captcha';
 
 
@@ -54,12 +54,12 @@ import { WelcomeComponent } from './welcome/welcome.component';
     PaymentComponent,
     AddtourComponent,
     TourinfoComponent,
-<<<<<<< HEAD
+
     ProfileComponent,
     
-=======
+
     WelcomeComponent,
->>>>>>> 1a4d4682d2915a71e7af86e49f50c6fa9851c0eb
+
     // NgxCaptchaModule
 
   ],
