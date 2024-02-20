@@ -17,20 +17,12 @@ import { PaymentComponent } from './payment/payment.component';
 import { SearchcustomerComponent } from './searchcustomer/searchcustomer.component';
 import { AddtourComponent } from './addtour/addtour.component';
 import { TourinfoComponent } from './tourinfo/tourinfo.component';
-<<<<<<< HEAD
 import { ProfileComponent } from './profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-
-const routes: Routes = [
-  { path: '', component:HomeComponent }, // Redirect to home page if no path provided
-=======
-import { WelcomeComponent } from './welcome/welcome.component';
-import { ProfileComponent } from './profile/profile.component';
 import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
->>>>>>> karthikeya
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
@@ -52,15 +44,10 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent }, // Route for My Bookings component
   { path: 'addtour', canActivate:[authGuard], component:AddtourComponent},
   { path: 'tourinfo', canActivate:[authGuard], component:TourinfoComponent},
-<<<<<<< HEAD
-  { path: 'welcome', canActivate:[authGuard], component:WelcomeComponent}
-];
-
-=======
   { path: 'welcome', canActivate:[authGuard], component:WelcomeComponent},
   { path: 'booking', canActivate:[authGuard], component:BookingComponent}
 ];
->>>>>>> karthikeya
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
