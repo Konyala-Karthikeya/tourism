@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
     sessionStorage.setItem("loggedInUser",JSON.stringify(payLoad));
     localStorage.setItem("email",payLoad.email);
     this.service.setIsUserLoggedIn();
-    this.router.navigate(['packages']);
+    this.router.navigate(['welcome']);
   }
 
  }
@@ -93,8 +93,6 @@ export class LoginComponent implements OnInit {
         this.service.setIsUserLoggedIn();
         this.toastr.success("Customer login Success!!");
         this.router.navigate(['welcome']);
-
-        this.router.navigate(['packages']);
       } else {
         this.toastr.error("Invalid Login credentials");
       }
