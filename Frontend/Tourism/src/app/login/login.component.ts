@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
     sessionStorage.setItem("loggedInUser",JSON.stringify(payLoad));
     localStorage.setItem("email",payLoad.email);
     this.service.setIsUserLoggedIn();
-    this.router.navigate(['tourinfo']);
+    this.router.navigate(['packages']);
   }
 
  }
