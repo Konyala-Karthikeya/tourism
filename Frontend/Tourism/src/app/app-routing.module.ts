@@ -18,30 +18,38 @@ import { SearchcustomerComponent } from './searchcustomer/searchcustomer.compone
 import { AddtourComponent } from './addtour/addtour.component';
 import { TourinfoComponent } from './tourinfo/tourinfo.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
-  { path: '', component:HomeComponent }, // Redirect to home page if no path provided
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent }, // New route for 'profile' URL segment
+  // { path: 'user/profile', component: ProfileComponent },
   { path: 'packages', canActivate: [authGuard], component: PackagesComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'package/:id', component: PackageInfoComponent }, // Route for package info with ID parameter
-  { path: 'otp',        canActivate:[authGuard],   component:OtpComponent },
-  { path: 'admin', canActivate:[authGuard], component:AdminComponent},
-  { path: 'customers', canActivate:[authGuard], component:CustomersComponent},
+  { path: 'package/:id', component: PackageInfoComponent },
   { path: 'otp', canActivate: [authGuard], component: OtpComponent },
+  { path: 'admin', canActivate: [authGuard], component: AdminComponent },
+  { path: 'customers', canActivate: [authGuard], component: CustomersComponent },
+  { path: 'mybookings', component: MybookingsComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'searchCustomer', canActivate: [authGuard], component: SearchcustomerComponent },
+  { path: 'addtour', canActivate: [authGuard], component: AddtourComponent },
+  { path: 'tourinfo', canActivate: [authGuard], component: TourinfoComponent },
   { path: 'mybookings', component: MybookingsComponent }, // Route for My Bookings component
   { path: 'payment', component: PaymentComponent }, // Route for My Bookings component
-  { path: 'searchCustomer', canActivate:[authGuard], component:SearchcustomerComponent},
   { path: 'addtour', canActivate:[authGuard], component:AddtourComponent},
   { path: 'tourinfo', canActivate:[authGuard], component:TourinfoComponent},
-  { path: 'welcome', canActivate:[authGuard], component:WelcomeComponent}
+  { path: 'welcome', canActivate:[authGuard], component:WelcomeComponent},
+  { path: 'booking', canActivate:[authGuard], component:BookingComponent}
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

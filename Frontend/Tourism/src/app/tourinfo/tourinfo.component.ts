@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-tourinfo',
   templateUrl: './tourinfo.component.html',
-  styleUrl: './tourinfo.component.css'
+  styleUrls: ['./tourinfo.component.css']
 })
 export class TourinfoComponent implements OnInit {
   tours: Tour[] = [];
@@ -23,13 +23,12 @@ export class TourinfoComponent implements OnInit {
         this.tours = data;
       },
       error => {
-        console.log('Error fetching tours:', error);
+        console.error('Error fetching tours:', error);
       }
     );
   }
 
-  bookNow() {
-    // Navigate to the 'mybookings' page
-    this.router.navigate(['/mybookings']);
+  bookNow(selectedTour: Tour): void {
+    this.router.navigate(['/booking'], { queryParams: { id: selectedTour.id } });
   }
 }

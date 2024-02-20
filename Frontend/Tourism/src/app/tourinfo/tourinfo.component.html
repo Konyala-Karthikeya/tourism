@@ -1,15 +1,14 @@
 <div class="row">
-    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let tour of tours">
-      <div class="card tour-card">
-        <img class="card-img-top" *ngIf="tour.base64Image" [src]="'data:image/png;base64,' + tour.base64Image" alt="Tour Image">
-        <div class="card-body">
-          <h5 class="card-title">{{ tour.name }}</h5>
-          <p class="card-text">Price: {{ tour.price }}</p>
-          <p class="card-text">Duration: {{ tour.duration }}</p>
-          <p class="card-text">Includes: {{ tour.includes }}</p>
-          <button class="btn btn-primary" (click)="bookNow()">Book Now</button>
-        </div>
+  <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let tour of tours">
+    <div class="card tour-card">
+      <img class="card-img-top" *ngIf="tour.base64Image" [src]="'data:image/png;base64,' + tour.base64Image" alt="Tour Image">
+      <div class="card-body">
+        <h5 class="card-title">{{ tour.name }}</h5>
+        <p class="card-text">Price: {{ tour.price }}</p>
+        <p class="card-text">Duration: {{ tour.duration }}</p>
+        <p class="card-text">Includes: {{ tour.includes }}</p>
+        <button class="btn btn-primary" (click)="bookNow(tour)">Book Now</button>
       </div>
     </div>
   </div>
-  
+</div>

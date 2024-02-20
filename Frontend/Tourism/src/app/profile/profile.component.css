@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Set height to viewport height for vertical centering */
+  }
+  
+  .form-container {
+    width: 400px; /* Adjust the width as needed */
+    border: 1px solid #ccc; /* Add border */
+    padding: 20px; /* Add some padding */
+  }
+  
+  /* Additional styles for form elements */
+  .input-box {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  

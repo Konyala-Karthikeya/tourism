@@ -1,7 +1,60 @@
-<h2>Booking Details</h2>
+<div class="container">
+  <h2>Booking Details</h2> <!-- Moved the heading inside the container -->
+  <div class="booking-details">
+    <!-- Booking details -->
+    <div *ngIf="selectedPackage" class="package-info">
+      <!-- Package details -->
+      <div class="image">
+        <img [src]="selectedPackage.imgsrc" alt="Package Image">
+      </div>
+      <div class="details">
+        <h3>{{ selectedPackage.name }}</h3>
+        <p><b>Price:</b> ₹{{ selectedPackage.price }}</p>
+        <p><b>Duration:</b> {{ selectedPackage.duration }}</p>
+        <p><b>Inclusions:</b> {{ selectedPackage.includes }}</p>
+        <!-- Add more fields as needed -->
+      </div>
+    </div>
 
-<div *ngIf="selectedPackage" class="booking-details">
-  <!-- Package details -->
+    <!-- No booking message -->
+    <div *ngIf="!selectedPackage" class="no-booking-message">
+      <p>No booking selected.</p>
+    </div>
+
+    <!-- Form for input fields -->
+    <form (submit)="calculatePayment()" class="form">
+      <!-- Input fields -->
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required [(ngModel)]="bookingDate" #date="ngModel">
+      <div *ngIf="date.invalid && (date.dirty || date.touched)" class="error-message">
+        <div *ngIf="date.errors?.['required']">Date is required.</div>
+      </div>
+      
+      <label for="from">From:</label>
+      <select id="from" name="from" required>
+        <option value="airport1">Airport 1</option>
+        <option value="airport2">Airport 2</option>
+        <!-- Add more airport options as needed -->
+      </select>
+      
+      <!-- You can add more input fields as needed -->
+      
+      <button type="submit">Calculate Payment</button>
+    </form>
+
+    <!-- Payment details -->
+    <div *ngIf="showPaymentDetails" class="payment-details">
+      <h2>Payment Details</h2> <!-- Added heading inside the payment-details -->
+      <p>Total: ₹{{ total }}</p>
+      <p>Tax (5%): ₹{{ tax }}</p>
+      <p>Total (inclusive of tax): ₹{{ totalInclusive }}</p>
+      <button type="button" (click)="proceedToPayment()">Proceed to Payment</button>
+    </div>
+  </div>
+</div>
+<!-- static data 
+  <div *ngIf="selectedPackage" class="booking-details">
+  Package details
   <div class="package-info">
     <div class="image">
       <img [src]="selectedPackage.imgsrc" alt="Package Image">
@@ -11,40 +64,7 @@
       <p><b>Price:</b> ₹{{ selectedPackage.price }}</p>
       <p><b>Duration:</b> {{ selectedPackage.duration }}</p>
       <p><b>Inclusions:</b> {{ selectedPackage.inclusions }}</p>
-      <!-- Add more fields as needed -->
+      Add more fields as needed
     </div>
   </div>
-</div>
-
-<div *ngIf="!selectedPackage" class="no-booking-message">
-  <p>No booking selected.</p>
-</div>
-
-<!-- Input fields -->
-<form (submit)="calculatePayment()">
-  <label for="date">Date:</label>
-  <input type="date" id="date" name="date" required [(ngModel)]="bookingDate" #date="ngModel">
-  <div *ngIf="date.invalid && (date.dirty || date.touched)" class="error-message">
-    <div *ngIf="date.errors?.['required']">Date is required.</div>
-  </div>
-  
-  <label for="from">From:</label>
-  <select id="from" name="from" required>
-    <option value="airport1">Airport 1</option>
-    <option value="airport2">Airport 2</option>
-    <!-- Add more airport options as needed -->
-  </select>
-  
-  <!-- You can add more input fields as needed -->
-  
-  <button type="submit">Calculate Payment</button>
-</form>
-
-<!-- Payment details -->
-<div *ngIf="showPaymentDetails">
-  <h2>Payment Details</h2>
-  <p>Total: ₹{{ total }}</p>
-  <p>Tax (5%): ₹{{ tax }}</p>
-  <p>Total (inclusive of tax): ₹{{ totalInclusive }}</p>
-  <button type="button" (click)="proceedToPayment()">Proceed to Payment</button>
-</div>
+</div> -->
