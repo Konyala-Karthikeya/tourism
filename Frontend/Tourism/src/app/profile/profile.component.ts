@@ -11,13 +11,19 @@ export class ProfileComponent implements OnInit {
   userData: any = {};
   countries: any[] = [];
 
-  constructor(private service: CustomerService, private toastr: ToastrService) {}
+  constructor(private service: CustomerService, private toastr: ToastrService) {
+
+    this.userData = { customerId:'',userName:'',gender:'',country:'',emailId:'',PhoneNumber:'',password:''};
+  }
 
   ngOnInit(): void {
-    // Fetch user data when the component initializes
-    this.fetchUserData();
-    // Fetch countries
-    this.fetchCountries();
+    if (this.service.loggedInUserEmail) {
+      this.fetchUserData();
+      this.fetchCountries();
+    } else {
+      console.warn('User is not logged in');
+      // Handle case when user is not logged in
+    }
   }
 
   fetchUserData() {
@@ -26,10 +32,8 @@ export class ProfileComponent implements OnInit {
         console.log('User data:', data);
         if (data) {
           this.userData = data;
-          // User data is available, proceed with other actions if needed
         } else {
           console.warn('User data not available');
-          // You may choose to set some default values for userData here
         }
       },
       (error: any) => {
@@ -52,14 +56,11 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile(formData: any) {
-    // Call service method to update user profile
     this.service.updateCustomerProfile(formData).subscribe(
       (response: any) => {
-        // Handle success response
         this.toastr.success('Profile updated successfully!');
       },
       (error: any) => {
-        // Handle error response
         this.toastr.error('Failed to update profile. Please try again.');
       }
     );

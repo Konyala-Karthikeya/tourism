@@ -46,8 +46,17 @@ export class CustomerService {
     return this.http.post('http://localhost:8085/addCustomer',this.customer);
   }
  
-  customerLogin(emailId:any,password:any){
-    return this.http.get('http://localhost:8085/customerLogin/' + emailId +'/'+ password).toPromise();
+  customerLogin(emailId: any, password: any) {
+    return this.http.get('http://localhost:8085/customerLogin/' + emailId + '/' + password).toPromise()
+      .then((response: any) => {
+        // Assuming the response contains user data including email
+        this.loggedInUserEmail = response.emailId; // Assuming emailId is the property that holds the email
+        return response;
+      })
+      .catch((error: any) => {
+        console.error('Failed to log in:', error);
+        throw error; // Rethrow the error to handle in the component
+      });
   }
 
   sendMail(mail : string, message : string){
