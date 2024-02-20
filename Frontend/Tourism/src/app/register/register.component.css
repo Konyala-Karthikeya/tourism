@@ -1,189 +1,46 @@
-
-/* #body{
-    background-image: url('../../assets/Images/register.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-button{
-    text-decoration: none;
-    color: var(--secondary-color);
-}
-button:hover{
-    text-decoration: underline;
-}
-form{
+header {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: rgba(0,0,0,0.2);
-}
-tbody{
-    position: relative;
-    width: 500px;
-    backdrop-filter: blur(25px);
-    border: 2px solid var(--primary-color);
-    border-radius: 15px;
-    padding: 7.5em 2.5em 4em 2.5em;
-    color: var(--secondary-color);
-} */
-
-/* .input-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-.input-container .column1 {
-    flex: 1;
-    margin-right: 10px;
-}
-
-.error {
-    margin-top: 5px;
-}
-
-
-.body1{
     height: 100vh;
-    width: 100%;
-    background-image: url('https://cdn.pixabay.com/photo/2017/09/04/16/58/passport-2714675_1280.jpg');
-    background-position: center;
-    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.15)),
+      url("../../assets/Images/Homebg.webp");
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  nav {
+    width: 100%;
+    height: 15vh;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    padding-top: 110px;
-}
-.body{
-    position: relative;
-    max-width:600px;
-    height: auto;
-    width:90%;
-    background: transparent;
-    backdrop-filter: blur(25px);
-    padding:25px;
-    border-radius:8px;
-    box-shadow:0 0 15px rgba(0,0,0,0.1);
-}
-.body h1{
-    font-size: 1.2rem;
-    color: #000;
-    font-weight:600;
+    text-transform: uppercase;
+  }
+  
+  nav .logo {
+    width: 25%;
     text-align: center;
-}
-
-.body .form{
-    margin-top: 15px;
-}
-
-.form .input-box{
-    width: 100%;
-    margin-top:10px;
-}
-
-.input-box label{
-    color: #000;
-}
-
-.form :where(.input-box input, .select-box){
-    position: relative;
-    height: 35px;
-    width: 93%;
-    outline: none;
-    font-size: 1rem;
-    color: #808080;
-    margin-top: 5px;
-    border: 1px solid black;
-    border-radius: 6px;
-    padding: 0 15px;
-    background: #fcedda;
-}
-
-.input-box input:focus{
-    box-shadow: 0 1px 0 rgba(0,0,0,0.1);
-}
-
-.form .column1{
-    display:flex;
-    width : 96%;
-    column-gap: 25px;
-}
-
-.form .column{
+    /*background: red;*/
+  }
+  
+  nav .menu {
+    width: 40%;
     display: flex;
-    width: 100%;
-    column-gap: 25px;
-}
-
-.address :where(input, .select-box){
-    margin-top:10px;
-}
-
-.select-box select{
-    height:100%;
-    width:100%;
-    outline: none;
-    border: none;
-    color: #808080;
-    font-size: 1rem;
-    background: #fcedda;
-}
-
-.form button{
-    height: 40px;
-    width: 100%;
-    color: #000;
-    font-size: 1rem;
-    font-weight: 400;
-    margin-top: 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: #ee4e34;
-}
-.form button:hover{
-    background: #ee3e34;
-}
-select{
-    border: 1px solid black;
-    border-radius: 6px;
-    height: 35px;
-    width: 93%;
-    background-color: #fcedda;
-}
-
-.wrapper .input-data input{
-    height: 100%;
-    width: 100%;
-    border: none;
-    font-size: 17px;
-    border-bottom: 2px solid silver;
-}
-
-    .input-data input:focus ~ label,
-    .input-data input:valid ~ label{
-    transform: translateY(-20px);
-    font-size: 15px;
-    color: #4158d0;
-}
-.wrapper .input-data label{
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    color: grey;
-    pointer-events: none;
-    transition: all 0.3s ease;
-
-} */
-
+    justify-content: space-around;
+  }
+  
+  nav .menu a {
+    width: 25%;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  nav .menu a:first-child {
+    color: #00b894;
+  }
+  
 .input-container {
     display: flex;
     flex-direction: column;
@@ -213,7 +70,7 @@ select{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 110px;
+    /* padding-top: 110px; */
 }
 
 .body {

@@ -1,134 +1,123 @@
-<app-header></app-header>
-<div class="body1">
-    <div class="body">
-        <h1>Register</h1>
-        <form #registrationForm="ngForm" (ngSubmit)="registerSubmit(registrationForm.value, registrationForm)" class="form"
-            novalidate>
-            <!-- Username Field -->
-            <div class="input-container">
-                <div class="input-box">
-                    <label>User Name</label>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input type="text" class="form-control" placeholder="Enter Username" name="userName" ngModel
-                        required (focus)="focusPasswordField(passwordInput)" />
-                </div>
-                <div class="error-message">
-                    <p *ngIf="registrationForm.controls['userName']?.invalid && registrationForm.controls['userName']?.touched"
-                        class="error" style="color: red;">Username is required.</p>
-                </div>
-            </div>
+<header>
+    <nav>
+        <div class="logo"><a href=" "><img align="left" src="../../assets/Images/Logo.png"
+                    style="height: 100px; width: 100px;" /></a>&nbsp;&nbsp;&nbsp;<h3>Explore-ERA</h3>
+        </div>
+        <div class="menu">
+            <!-- <a href=" " style="font-size: 25px">Home</a> -->
+            <a routerLink="login">Packages</a>
+            <a href="about">about</a>
+            <a href="#">contact</a>
+        </div>
+    </nav>
+    <div class="body1">
+        <div class="body">
+            <p>Registration Form</p>
+            <form #registrationForm="ngForm" (ngSubmit)="registerSubmit(registrationForm.value, registrationForm)"
+                class="form" novalidate>
 
-            <!-- Gender Field -->
-            <div class="input-container">
-                <div class="input-box">
-                    <label>Gender</label>
-                    <br>
-                    <select name="gender" class="form-control" ngModel required>
-                        <option value="" disabled selected>Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Others">Others</option>
-                    </select>
-                </div>
-                <div class="error-message">
-                    <p *ngIf="registrationForm.controls['gender']?.invalid && registrationForm.controls['gender']?.touched"
-                        class="error" style="color: red;">Gender is required.</p>
-                </div>
-            </div>
-
-            <!-- Country Field -->
-            <div class="input-container">
-                <div class="input-box">
-                    <label>Country</label>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
-                    <select class="form-control" name="country" ngModel required>
-                        <option value="" selected>Select Country</option>
-                        <option value="{{country.cca3}}" *ngFor="let country of countries">{{country.name.common}}</option>
-                    </select>
-                </div>
-                <div class="error-message">
-                    <p *ngIf="registrationForm.controls['country']?.invalid && registrationForm.controls['country']?.touched"
-                        class="error" style="color: red;">Country is required.</p>
-                </div>
-            </div>
-
-            <!-- EmailId Field -->
-            <div class="input-container">
-                <div class="input-box">
-                    <label>EmailId</label>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                    <input type="text" class="form-control" placeholder="Enter email" name="emailId" ngModel
-                        #emailId="ngModel" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
-                </div>
-                <div class="error-message">
-                    <h6 *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="error" style="color: red;">
-                        <p *ngIf="emailId.hasError('required')">Email is required.</p>
-                        <p *ngIf="emailId.hasError('pattern')">Enter a valid email.</p>
-                    </h6>
-                </div>
-            </div>
-
-            <!-- Mobile Number Field -->
-            <div class="input-container">
-                <div class="input-box">
-                    <label>Mobile Number</label>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                    <input type="text" class="form-control" placeholder="Enter MobileNo" name="mobileNumber" ngModel
-                        #mobileNumber="ngModel" required pattern="^\+91 \d{5} \d{5}$" maxlength="16" />
-                </div>
-                <div class="error-message">
-                    <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="error"
-                        style="color: red;">
-                        <p *ngIf="mobileNumber.hasError('required')">Mobile Number is required.</p>
-                        <p *ngIf="mobileNumber.hasError('pattern')">Enter a valid number starting with +91 </p>
-                        <p *ngIf="mobileNumber.hasError('maxlength')">Mobile Number should not exceed 15 characters.</p>
+                <div class="input-container">
+                    <div class="input-box">
+                        <label>User Name</label>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" class="form-control" placeholder="Enter Username" name="userName" ngModel
+                            required (focus)="focusPasswordField(passwordInput)" />
                     </div>
-                </div>
-            </div>
+                        <p *ngIf="registrationForm.controls['userName']?.invalid && registrationForm.controls['userName']?.touched"
+                            class="error" style="color: red;">Username is required.</p>
 
-            <!-- Password Field -->
-            <div class="input-container">
-                <div class="input-box">
-                    <label>Password</label>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control"
-                        placeholder="Enter password" name="password" ngModel #passwordInput="ngModel"
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%?&]{8,20}$" maxlength="20" />
-                    <span class="input-group-addon" (click)="togglePasswordVisibility()">
-                        <i class="{{ showPassword ? 'glyphicon glyphicon-eye-open' : 'glyphicon glyphicon-eye-close' }}"></i>
-                    </span>
-                </div>
-                <div class="error-message">
-                    <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error"
-                        style="color: red;">
-                        <p *ngIf="passwordInput.hasError('required')">Password is required.</p>
-                        <p *ngIf="passwordInput.hasError('pattern')">Password must be alphanumeric </p>
+                
+                    <div class="input-box">
+                        <label>Gender</label>
+                        <br>
+                        <select name="gender" class="form-control" ngModel required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                        </select>
                     </div>
+                        <p *ngIf="registrationForm.controls['gender']?.invalid && registrationForm.controls['gender']?.touched"
+                            class="error" style="color: red;">Gender is required.</p>
+               
+                    <div class="input-box">
+                        <label>Country</label>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
+                        <select class="form-control" name="country" ngModel required>
+                            <option value="" selected>Select Country</option>
+                            <option value="{{country.cca3}}" *ngFor="let country of countries">{{country.name.common}}
+                            </option>
+                        </select>
+                    </div>
+                        <p *ngIf="registrationForm.controls['country']?.invalid && registrationForm.controls['country']?.touched"
+                            class="error" style="color: red;">Country is required.</p>
+                
+                    <div class="input-box">
+                        <label>EmailId</label>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input type="text" class="form-control" placeholder="Enter email" name="emailId" ngModel
+                            #emailId="ngModel" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
+                    </div>
+                        <h6 *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="error"
+                            style="color: red;">
+                            <p *ngIf="emailId.hasError('required')">Email is required.</p>
+                            <p *ngIf="emailId.hasError('pattern')">Enter a valid email.</p>
+                        </h6>
+               
+                    <div class="input-box">
+                        <label>Mobile Number</label>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                        <input type="text" class="form-control" placeholder="Enter MobileNo" name="mobileNumber" ngModel
+                            #mobileNumber="ngModel" required pattern="^\+91 \d{5} \d{5}$" maxlength="16" />
+                    </div>
+                        <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="error"
+                            style="color: red;">
+                            <p *ngIf="mobileNumber.hasError('required')">Mobile Number is required.</p>
+                            <p *ngIf="mobileNumber.hasError('pattern')">Enter a valid number starting with +91 </p>
+                            <p *ngIf="mobileNumber.hasError('maxlength')">Mobile Number should not exceed 15 characters.
+                            </p>
+                        </div>
+                
+                    <div class="input-box">
+                        <label>Password</label>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control"
+                            placeholder="Enter password" name="password" ngModel #passwordInput="ngModel"
+                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%?&]{8,20}$" maxlength="20" />
+                        <span class="input-group-addon" (click)="togglePasswordVisibility()">
+                            <i
+                                class="{{ showPassword ? 'glyphicon glyphicon-eye-open' : 'glyphicon glyphicon-eye-close' }}"></i>
+                        </span>
+                    </div>
+                        <ng-container *ngIf="passwordInput.invalid && passwordInput.touched">
+                            <p class="error" style="color: red;" *ngIf="passwordInput.hasError('required')">Password is
+                                required.
+                            </p>
+                            <p class="error" style="color: red;" *ngIf="passwordInput.hasError('pattern')">Password must be
+                                at least 8 characters long and contain at least one uppercase letter, one lowercase letter,
+                                and one number.
+                            </p>
+                        </ng-container>
+                
+                    <div class="input-box">
+                        <label>ConfirmPassword</label>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" class="form-control" placeholder="Enter confirm password"
+                            name="confirmPassword" ngModel #confirmPasswordInput="ngModel" required />
+                    </div>
+                        <p *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched && confirmPasswordInput.hasError('passwordMismatch')"
+                            class="error" style="color: red;">Passwords do not match.</p>
+                        <p *ngIf="confirmPasswordInput.touched && confirmPasswordInput.hasError('required')"
+                            class="error" style="color: red;">Confirm Password is Required.</p>
                 </div>
-            </div>
 
-            <!-- Confirm Password Field -->
-            <div class="input-container">
-                <div class="input-box">
-                    <label>ConfirmPassword</label>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" class="form-control" placeholder="Enter confirm password"
-                        name="confirmPassword" ngModel #confirmPasswordInput="ngModel" required />
-                </div>
-                <div class="error-message">
-                    <p *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched && confirmPasswordInput.hasError('passwordMismatch')"
-                        class="error" style="color: red;">Passwords do not match.</p>
-                    <p *ngIf="confirmPasswordInput.touched && confirmPasswordInput.hasError('required')" class="error"
-                        style="color: red;">Confirm Password is Required.</p>
-                </div>
-            </div>
+                <!-- Submit Button -->
+                <button type="button" (click)="registerSubmit(registrationForm.value, registrationForm)">
+                    <h5>Register</h5>
+                </button>
 
-            <!-- Submit Button -->
-            <button type="button" (click)="registerSubmit(registrationForm.value, registrationForm)">
-                <h5>Register</h5>
-            </button>
-
-            <p>Already a user? <a routerLink="/login">Login</a></p>
-        </form>
+                <p>Already a user? <a routerLink="/login">Login</a></p>
+            </form>
+        </div>
     </div>
-</div>
+</header>

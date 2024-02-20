@@ -28,7 +28,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent }, // New route for 'profile' URL segment
-  // { path: 'user/profile', component: ProfileComponent },
   { path: 'packages', canActivate: [authGuard], component: PackagesComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'package/:id', component: PackageInfoComponent },
@@ -38,8 +37,6 @@ const routes: Routes = [
   { path: 'mybookings', component: MybookingsComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'searchCustomer', canActivate: [authGuard], component: SearchcustomerComponent },
-  { path: 'addtour', canActivate: [authGuard], component: AddtourComponent },
-  { path: 'tourinfo', canActivate: [authGuard], component: TourinfoComponent },
   { path: 'mybookings', component: MybookingsComponent }, // Route for My Bookings component
   { path: 'payment', component: PaymentComponent }, // Route for My Bookings component
   { path: 'addtour', canActivate:[authGuard], component:AddtourComponent},
