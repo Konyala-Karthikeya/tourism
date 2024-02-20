@@ -25,16 +25,16 @@
     <div *ngIf="date.invalid && (date.dirty || date.touched)" class="error-message">
       <div *ngIf="date.errors?.['required']">Date is required.</div>
     </div>
-    
+
     <label for="from">From:</label>
     <select id="from" name="from" required>
       <option value="airport1">Airport 1</option>
       <option value="airport2">Airport 2</option>
       <!-- Add more airport options as needed -->
     </select>
-    
+
     <!-- You can add more input fields as needed -->
-    
+
     <button type="submit">Calculate Payment</button>
   </form>
 
@@ -47,4 +47,3 @@
     <button type="button" (click)="proceedToPayment()">Proceed to Payment</button>
   </div>
 </div>
-
