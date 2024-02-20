@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Booking Confirmation</h2>
+    <div *ngIf="bookingDetails" class="booking-details">
+      <h3>Selected Tour Details</h3>
+      <p><b>Name:</b> {{ bookingDetails.selectedTour.name }}</p>
+      <p><b>Price:</b> {{ bookingDetails.selectedTour.price }}</p>
+      <!-- Add more details as needed -->
+  
+      <h3>Booking Information</h3>
+      <p><b>Date:</b> {{ bookingDetails.bookingDate }}</p>
+      <p><b>Total:</b> {{ bookingDetails.total }}</p>
+      <p><b>Tax:</b> {{ bookingDetails.tax }}</p>
+      <p><b>Total (inclusive of tax):</b> {{ bookingDetails.totalInclusive }}</p>
+      <!-- Add more details as needed -->
+    </div>
+    <div *ngIf="!bookingDetails" class="no-booking-message">
+      <p>No booking details found.</p>
+    </div>
+  </div>
+  
