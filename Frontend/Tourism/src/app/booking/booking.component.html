@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Booking Details</h2>
+      <div *ngIf="selectedTour">
+        <img *ngIf="selectedTour.base64Image" [src]="'data:image/png;base64,' + selectedTour.base64Image"
+          alt="Tour Image" class="tour-image">
+        <h3>{{ selectedTour.name }}</h3>
+        <p>Price: {{ selectedTour.price }}</p>
+        <p>Duration: {{ selectedTour.duration }}</p>
+        <p>Includes: {{ selectedTour.includes }}</p>
+      </div>
+    </div>
+  </div>
+</div>

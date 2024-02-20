@@ -9,13 +9,12 @@ import { Tour } from './tour';
 export class TourService {
   constructor(private http: HttpClient) {}
 
-  getPackage(packageId: any): Observable<any> {
-    // Replace 'your-api-endpoint' with the actual endpoint to fetch package details
-    return this.http.get<any>('your-api-endpoint/' + packageId);
-  }
-
   getAllTours(): Observable<Tour[]> {
     return this.http.get<Tour[]>('http://localhost:8085/getAllTours');
+  }
+
+  getTourById(id: number): Observable<Tour> {
+    return this.http.get<Tour>('http://localhost:8085/getTourById/' + id);
   }
 
   addTour(file: File, name: string, price: number, duration: string, includes: string): Observable<any> {
@@ -28,3 +27,4 @@ export class TourService {
     return this.http.post<any>('http://localhost:8085/add', formData);
   }
 }
+

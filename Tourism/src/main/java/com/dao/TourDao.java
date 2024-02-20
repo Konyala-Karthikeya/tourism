@@ -15,10 +15,10 @@ public class TourDao {
 	    public List<Tour> getAllTours() {
 	        return tourRepository.findAll();
 	    }
-
-//	    public Tour getTourById(Long id) {
-//	        return tourRepository.findById(id).orElse(null);
-//	    }
+	    
+	    public Tour getTourById(Long id) {
+	        return tourRepository.findById(id).orElse(null);
+	    }
 
 	    public Tour saveTour(Tour tour) {
 	        return tourRepository.save(tour);

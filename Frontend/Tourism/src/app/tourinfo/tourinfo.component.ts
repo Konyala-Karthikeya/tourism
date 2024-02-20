@@ -23,15 +23,12 @@ export class TourinfoComponent implements OnInit {
         this.tours = data;
       },
       error => {
-        console.log('Error fetching tours:', error);
+        console.error('Error fetching tours:', error);
       }
     );
   }
 
-  bookNow(selectedPackage: any) {
-    // Store the selected package in localStorage or a service
-    localStorage.setItem('selectedPackage', JSON.stringify(selectedPackage));
-    // Navigate to My Bookings component
-    this.router.navigate(['mybookings']);
+  bookNow(selectedTour: Tour): void {
+    this.router.navigate(['/booking'], { queryParams: { id: selectedTour.id } });
   }
 }
