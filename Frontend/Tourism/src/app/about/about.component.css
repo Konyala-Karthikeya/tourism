@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 body{
     min-height: 100vh;
     display: flex;
@@ -19,6 +20,7 @@ body{
     background-color: #fdfdfd;
     overflow: hidden;
     padding: 100px 0;
+    padding-top: 10%;
     padding-bottom: 60px; /* Adjusted padding for footer */
 }
 
