@@ -21,6 +21,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { BookingComponent } from './booking/booking.component';
 import { ConfirmationpageComponent } from './confirmationpage/confirmationpage.component';
+import { AdmintourComponent } from './admintour/admintour.component';
+import { EdittourComponent } from './edittour/edittour.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,7 +31,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent }, // New route for 'profile' URL segment
-  // { path: 'user/profile', component: ProfileComponent },
   { path: 'packages', canActivate: [authGuard], component: PackagesComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'package/:id', component: PackageInfoComponent },
@@ -39,8 +40,6 @@ const routes: Routes = [
   { path: 'mybookings', component: MybookingsComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'searchCustomer', canActivate: [authGuard], component: SearchcustomerComponent },
-  { path: 'addtour', canActivate: [authGuard], component: AddtourComponent },
-  { path: 'tourinfo', canActivate: [authGuard], component: TourinfoComponent },
   { path: 'mybookings', component: MybookingsComponent }, // Route for My Bookings component
   { path: 'payment', component: PaymentComponent }, // Route for My Bookings component
   { path: 'addtour', canActivate:[authGuard], component:AddtourComponent},
@@ -48,6 +47,8 @@ const routes: Routes = [
   { path: 'welcome', canActivate:[authGuard], component:WelcomeComponent},
   { path: 'booking', canActivate:[authGuard], component:BookingComponent},
   { path: 'confirmation', component: ConfirmationpageComponent },
+  { path: 'admintour', canActivate:[authGuard],component:AdmintourComponent},
+  { path: 'edittour/:id', canActivate: [authGuard], component: EdittourComponent }
 ];
 
 @NgModule({

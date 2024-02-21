@@ -1,0 +1,27 @@
+<div class="container">
+    <form (ngSubmit)="updateTour()" #tourForm="ngForm">
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="tour.name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" name="price" [(ngModel)]="tour.price" required>
+        </div>
+
+        <div class="form-group">
+            <label for="duration">Duration</label>
+            <input type="text" class="form-control" id="duration" name="duration" [(ngModel)]="tour.duration" required>
+        </div>
+
+        <div class="form-group">
+            <label for="includes">Includes</label>
+            <input type="text" class="form-control" id="includes" name="includes" [(ngModel)]="tour.includes" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Update Tour</button>
+
+    </form>
+</div>

@@ -24,22 +24,22 @@ public class TourDao {
 	        return tourRepository.save(tour);
 	    }
 
-//	    public Tour updateTour(Long id, Tour updatedTour) {
-//	    	Tour existingTour = tourRepository.findById(id).orElse(null);
-//	        if (existingTour != null) {
-//	            // Update existing product fields with values from the updated product
-//	        	existingTour.setName(updatedTour.getName());
-//	        	existingTour.setPrice(updatedTour.getPrice());
-//	        	existingTour.setDuration(updatedTour.getDuration());
-//	        	existingTour.setIncludes(updatedTour.getIncludes());
-//	            return tourRepository.save(existingTour);
-//	        }
-//	        return null; // Or throw an exception if needed
-//	    }
+	    public Tour updateTour(Long id, Tour updatedTour) {
+	        Tour existingTour = tourRepository.findById(id).orElse(null);
+	        if (existingTour != null) {
+	            existingTour.setName(updatedTour.getName());
+	            existingTour.setPrice(updatedTour.getPrice());
+	            existingTour.setDuration(updatedTour.getDuration());
+	            existingTour.setIncludes(updatedTour.getIncludes());
+	            return tourRepository.save(existingTour);
+	        }
+	        return null;
+	    }
 
-//	    public void deleteTour(Long id) {
-//	    	tourRepository.deleteById(id);
-//	    }
+	    
+	    public void deleteTour(Long id) {
+	        tourRepository.deleteById(id);
+	    }
 	
 	
 

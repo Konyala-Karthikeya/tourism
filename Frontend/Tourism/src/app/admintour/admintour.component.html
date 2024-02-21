@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Admin Tours</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Duration</th>
+          <th>Includes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tour of tours">
+          <td class="img"><img class="card-img-top" *ngIf="tour.base64Image" [src]="'data:image/png;base64,' + tour.base64Image" alt="Tour Image"></td>
+          <td>{{ tour.id }}</td>
+          <td>{{ tour.name }}</td>
+          <td>{{ tour.price }}</td>
+          <td>{{ tour.duration }}</td>
+          <td>{{ tour.includes }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editTour(tour)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteTour(tour.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

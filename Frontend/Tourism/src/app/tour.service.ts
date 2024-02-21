@@ -26,5 +26,13 @@ export class TourService {
     formData.append('includes', includes);
     return this.http.post<any>('http://localhost:8085/add', formData);
   }
+
+  updateTour(id: number, tour: Tour): Observable<Tour> {
+    return this.http.put<Tour>('http://localhost:8085/updateTour/' + id, tour);
+  }
+
+  deleteTour(id: number): Observable<any> {
+    return this.http.delete('http://localhost:8085/deleteTour/' + id);
+  }
 }
 

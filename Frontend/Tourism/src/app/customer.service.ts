@@ -83,7 +83,9 @@ export class CustomerService {
     return this.http.get<any>('http://localhost:8085/getCustomerByEmail/' + this.loggedInUserEmail);
   }
   
-
+  deleteEmployee(customerId: any) {
+    return this.http.delete('http://localhost:8085/deleteCustomerById/' + customerId);
+  }
 
   setIsUserLoggedIn() { 
     this.isUserLoggedIn = true;
