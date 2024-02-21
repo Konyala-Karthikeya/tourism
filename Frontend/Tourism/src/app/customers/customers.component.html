@@ -1,7 +1,13 @@
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-</head>
+  <nav>
+    <div class="logo"><a href=" "><img align="left" src="../../assets/Images/Logo.png" style="height: 100px; width: 100px;"/></a>&nbsp;&nbsp;&nbsp;<h3>Explore-ERA</h3></div>
+    <div class="menu">
+      <a routerLink="/tourinfo">Packages</a>
+      <a routerLink="/logout">Logout</a>
+      <a routerLink="/searchCustomer">Search Customer</a>
+    </div>
+  </nav>
 
+  
 <h1 align="center">Customers Data</h1>
 <br/>
 <div align="center" class="container">
@@ -25,7 +31,7 @@
                 <td>{{customer.phoneNumber}}</td>
                 <td>{{customer.emailId}}</td>
                 <td>{{customer.country}}</td>
-                <td> <button (click)="deleteEmployee(customer)" class="glyphicon glyphicon-trash"></button> </td>
+                <!-- <td> <button (click)="deleteEmployee(customer)" class="glyphicon glyphicon-trash"></button> </td> -->
             </tr>
         </tbody>
     </table>
