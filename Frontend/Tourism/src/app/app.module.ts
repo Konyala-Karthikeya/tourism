@@ -34,6 +34,7 @@ import { BookingComponent } from './booking/booking.component';
 import { ConfirmationpageComponent } from './confirmationpage/confirmationpage.component';
 import { AdmintourComponent } from './admintour/admintour.component';
 import { EdittourComponent } from './edittour/edittour.component';
+import { Header2Component } from './header2/header2.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { EdittourComponent } from './edittour/edittour.component';
     ConfirmationpageComponent,
     AdmintourComponent,
     EdittourComponent,
+    Header2Component,
   ],
   imports: [
     BrowserModule,

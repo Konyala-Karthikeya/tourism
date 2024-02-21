@@ -59,13 +59,13 @@
                 </ul>
                 <div class="profile-popup">
                     <a href="#">
-                        <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
+                        <i >Profile</i> <!-- Font Awesome user icon -->
                     </a>
                     <div class="profile-popup-content">
-                        <a routerLink="/dashboard"><i class="fa fa-th-large"></i>Dashboard</a>
+                        <!-- <a routerLink="/dashboard"><i class="fa fa-th-large"></i>Dashboard</a> -->
                         <a routerLink="/profile"><i class="fa fa-pencil"></i>Edit profile</a>
                         <a routerLink="/profile"><i class="fa fa-eye"></i>View profile</a>
-                        <a routerLink="/sign-out"><i class="fa fa-power-off"></i>Sign out</a>
+                        <a routerLink="/logout"><i class="fa fa-power-off"></i>Sign out</a>
                     </div>
                 </div>
                 
@@ -74,6 +74,13 @@
                         <!-- <li class="nav-item">
                             <a class="nav-link" routerLink="/mybookings">MyBookings({{ cartPackages.length }})</a>
                         </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/tourinfo">Packages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/confirmation">Mybookings</a>
+                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" routerLink="/logout">Logout</a>
                         </li>
