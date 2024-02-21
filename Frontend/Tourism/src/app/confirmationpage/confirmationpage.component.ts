@@ -6,13 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './confirmationpage.component.css'
 })
 export class ConfirmationpageComponent implements OnInit {
-
   bookingDetails: any;
 
   constructor() { }
 
   ngOnInit(): void {
-    // Retrieve booking details from local storage
+    this.retrieveBookingDetails();
+  }
+
+  retrieveBookingDetails(): void {
     const bookingDetailsString = localStorage.getItem('bookingDetails');
     if (bookingDetailsString) {
       this.bookingDetails = JSON.parse(bookingDetailsString);

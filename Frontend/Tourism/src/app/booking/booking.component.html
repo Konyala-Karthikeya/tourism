@@ -12,14 +12,8 @@
       </div>
     </div>
   </div>
-  <!-- No booking message -->
-  <div *ngIf="!selectedTour" class="no-booking-message">
-    <p>No booking selected.</p>
-  </div>
 
-  <!-- Form for input fields -->
   <form (submit)="calculatePayment()" class="form">
-    <!-- Input fields -->
     <label for="date">Date:</label>
     <input type="date" id="date" name="date" required [(ngModel)]="bookingDate" #date="ngModel">
     <div *ngIf="date.invalid && (date.dirty || date.touched)" class="error-message">
@@ -30,21 +24,16 @@
     <select id="from" name="from" required>
       <option value="airport1">Airport 1</option>
       <option value="airport2">Airport 2</option>
-      <!-- Add more airport options as needed -->
     </select>
-    
-    <!-- You can add more input fields as needed -->
     
     <button type="submit">Calculate Payment</button>
   </form>
 
-  <!-- Payment details -->
   <div *ngIf="showPaymentDetails" class="payment-details">
-    <h2>Payment Details</h2> <!-- Added heading inside the payment-details -->
+    <h2>Payment Details</h2>
     <p>Total: ₹{{ total }}</p>
     <p>Tax (5%): ₹{{ tax }}</p>
     <p>Total (inclusive of tax): ₹{{ totalInclusive }}</p>
     <button type="button" (click)="proceedToPayment()">Proceed to Payment</button>
   </div>
 </div>
-

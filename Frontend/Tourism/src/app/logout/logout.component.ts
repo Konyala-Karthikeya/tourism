@@ -17,6 +17,11 @@ export class LogoutComponent implements OnInit {
   }
 
   logout(): void {
+
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('bookingDetails');
+    }
+
     this.service.setIsUserLoggedOut(); // Update user login status
 
     this.toastr.success('Logout successful', 'Success'); // Display success message
