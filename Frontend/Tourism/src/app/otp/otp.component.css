@@ -15,6 +15,7 @@ body {
   justify-content: center;
   padding: 20px;
   background-image: url('https://cdn.pixabay.com/photo/2020/01/22/18/24/venice-4785972_640.jpg');
+  background-size: cover;
   background-repeat: no-repeat;
 }
 

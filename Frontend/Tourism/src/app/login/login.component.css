@@ -101,7 +101,8 @@ nav .logo {
 }
 
 nav .menu {
-  width: 40%;
+  align-items:flex-end;
+  width: 30vh;
   display: flex;
   justify-content: space-around;
 }
