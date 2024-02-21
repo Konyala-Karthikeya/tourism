@@ -26,7 +26,7 @@ export class CustomersComponent implements OnInit{
 
     this.customers.splice(i, 1);
 
-    this.toastr.success('Employee Deleted Successfully!!!');
+    this.toastr.success('customer Deleted Successfully!!!');
   }
 
 }

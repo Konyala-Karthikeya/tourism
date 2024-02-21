@@ -20,6 +20,8 @@ import { TourinfoComponent } from './tourinfo/tourinfo.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { BookingComponent } from './booking/booking.component';
+import { AdmintourComponent } from './admintour/admintour.component';
+import { EdittourComponent } from './edittour/edittour.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,7 +44,9 @@ const routes: Routes = [
   { path: 'addtour', canActivate:[authGuard], component:AddtourComponent},
   { path: 'tourinfo', canActivate:[authGuard], component:TourinfoComponent},
   { path: 'welcome', canActivate:[authGuard], component:WelcomeComponent},
-  { path: 'booking', canActivate:[authGuard], component:BookingComponent}
+  { path: 'booking', canActivate:[authGuard], component:BookingComponent},
+  { path: 'admintour', canActivate:[authGuard],component:AdmintourComponent},
+  { path: 'edittour/:id', canActivate: [authGuard], component: EdittourComponent }
 ];
 
 @NgModule({

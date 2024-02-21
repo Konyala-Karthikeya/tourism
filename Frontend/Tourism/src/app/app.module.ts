@@ -31,6 +31,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { BookingComponent } from './booking/booking.component';
+import { AdmintourComponent } from './admintour/admintour.component';
+import { EdittourComponent } from './edittour/edittour.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { BookingComponent } from './booking/booking.component';
     ProfileComponent,
     WelcomeComponent,
     BookingComponent,
+    AdmintourComponent,
+    EdittourComponent,
   ],
   imports: [
     BrowserModule,
