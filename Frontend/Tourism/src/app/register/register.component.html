@@ -1,18 +1,7 @@
 <header>
-    <nav>
-        <div class="logo"><a href=" "><img align="left" src="../../assets/Images/Logo.png"
-                    style="height: 100px; width: 100px;" /></a>&nbsp;&nbsp;&nbsp;<h3>Explore-ERA</h3>
-        </div>
-        <div class="menu">
-            <!-- <a href=" " style="font-size: 25px">Home</a> -->
-            <a routerLink="login">Packages</a>
-            <a href="about">about</a>
-            <a href="#">contact</a>
-        </div>
-    </nav>
     <div class="body1">
         <div class="body">
-            <p>Registration Form</p>
+            <h5 align="center">Registration Form</h5>
             <form #registrationForm="ngForm" (ngSubmit)="registerSubmit(registrationForm.value, registrationForm)"
                 class="form" novalidate>
 
@@ -25,28 +14,6 @@
                     </div>
                         <p *ngIf="registrationForm.controls['userName']?.invalid && registrationForm.controls['userName']?.touched"
                             class="error" style="color: red;">Username is required.</p>
-
-           <!-- Password Field -->
-<div class="input-container">
-    <div class="input-box">
-        <label>Password</label>
-        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control"
-            placeholder="Enter password" name="password" ngModel #passwordInput="ngModel"
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%?&]{8,20}$" maxlength="20" required />
-        <span class="input-group-addon" (click)="togglePasswordVisibility()">
-            <i class="{{ showPassword ? 'glyphicon glyphicon-eye-open' : 'glyphicon glyphicon-eye-close' }}"></i>
-        </span>
-    </div>
-    <div class="error-message">
-        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error"
-            style="color: red;">
-            <p *ngIf="passwordInput.hasError('required')">Password is required.</p>
-            <p *ngIf="passwordInput.hasError('pattern')">Password must be alphanumeric and 8-20 characters long.</p>
-        </div>
-    </div>
-</div>
-
                 
                     <div class="input-box">
                         <label>Gender</label>
@@ -99,26 +66,26 @@
                             </p>
                         </div>
                 
-                    <div class="input-box">
-                        <label>Password</label>
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control"
-                            placeholder="Enter password" name="password" ngModel #passwordInput="ngModel"
-                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%?&]{8,20}$" maxlength="20" />
-                        <span class="input-group-addon" (click)="togglePasswordVisibility()">
-                            <i
-                                class="{{ showPassword ? 'glyphicon glyphicon-eye-open' : 'glyphicon glyphicon-eye-close' }}"></i>
-                        </span>
-                    </div>
-                        <ng-container *ngIf="passwordInput.invalid && passwordInput.touched">
-                            <p class="error" style="color: red;" *ngIf="passwordInput.hasError('required')">Password is
-                                required.
-                            </p>
-                            <p class="error" style="color: red;" *ngIf="passwordInput.hasError('pattern')">Password must be
-                                at least 8 characters long and contain at least one uppercase letter, one lowercase letter,
-                                and one number.
-                            </p>
-                        </ng-container>
+                             <!-- Password Field -->
+<div class="input-container">
+    <div class="input-box">
+        <label>Password</label>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control"
+            placeholder="Enter password" name="password" ngModel #passwordInput="ngModel"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%?&]{8,20}$" maxlength="20" required />
+        <span class="input-group-addon" (click)="togglePasswordVisibility()">
+            <i class="{{ showPassword ? 'glyphicon glyphicon-eye-open' : 'glyphicon glyphicon-eye-close' }}"></i>
+        </span>
+    </div>
+    <div class="error-message">
+        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error"
+            style="color: red;">
+            <p *ngIf="passwordInput.hasError('required')">Password is required.</p>
+            <p *ngIf="passwordInput.hasError('pattern')">Password must be alphanumeric and 8-20 characters long.</p>
+        </div>
+    </div>
+</div>
                 
                     <div class="input-box">
                         <label>ConfirmPassword</label>
