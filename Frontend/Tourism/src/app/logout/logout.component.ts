@@ -24,7 +24,7 @@ export class LogoutComponent implements OnInit {
 
     this.service.setIsUserLoggedOut(); // Update user login status
 
-    this.toastr.success('Logout successful', 'Success'); // Display success message
+    this.toastr.success('Logout successfully'); // Display success message
 
     this.router.navigate(['login']); // Navigate to login page
   }
