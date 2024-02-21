@@ -1,0 +1,41 @@
+.container {
+    padding: 20px;
+  }
+  
+  .booking-details {
+    margin-top: 90px; /* Adjust the top margin as needed based on your navbar height */
+  }
+  
+  .no-booking-message {
+    margin-top: 90px; /* Adjust the top margin as needed based on your navbar height */
+  }
+  
+  .status {
+    padding: 10px;
+    border-radius: 5px;
+    width: fit-content;
+  }
+  
+  .success {
+    background-color: green;
+    color: white;
+  }
+  
+  .error {
+    background-color: red;
+    color: white;
+  }
+  
+  .booking-details table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .booking-details table, .booking-details th, .booking-details td {
+    border: 1px solid #ccc;
+  }
+  
+  .booking-details th, .booking-details td {
+    padding: 8px;
+  }
+  

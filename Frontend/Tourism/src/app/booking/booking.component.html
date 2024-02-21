@@ -1,40 +1,38 @@
 <app-header1></app-header1>
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <h2>Booking Details</h2>
-      <div *ngIf="selectedTour">
-        <img *ngIf="selectedTour.base64Image" [src]="'data:image/png;base64,' + selectedTour.base64Image"
-          alt="Tour Image" class="tour-image">
-        <h3>{{ selectedTour.name }}</h3>
-        <p>Price: {{ selectedTour.price }}</p>
-        <p>Duration: {{ selectedTour.duration }}</p>
-        <p>Includes: {{ selectedTour.includes }}</p>
+  <div class="booking-details">
+    <h2>Booking Details</h2>
+    <div class="tour-info">
+      <div class="tour-image-container">
+        <img *ngIf="selectedTour && selectedTour.base64Image" [src]="'data:image/png;base64,' + selectedTour.base64Image" alt="Tour Image" class="tour-image">
+      </div>
+      <div class="package-info">
+        <h3>{{ selectedTour?.name }}</h3>
+        <p>Price: {{ selectedTour?.price }}</p>
+        <p>Duration: {{ selectedTour?.duration }}</p>
+        <p>Includes: {{ selectedTour?.includes }}</p>
       </div>
     </div>
+    <form (submit)="calculatePayment()" class="form">
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required [(ngModel)]="bookingDate" #date="ngModel">
+        <div *ngIf="date.invalid && (date.dirty || date.touched)" class="error-message">
+          <div *ngIf="date.errors?.['required']">Date is required.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="from">From:</label>
+        <select id="from" name="from" required>
+          <option value="airport1">Airport 1</option>
+          <option value="airport2">Airport 2</option>
+        </select>
+      </div>
+      <button type="submit">Calculate Payment</button>
+    </form>
   </div>
-
-  <form (submit)="calculatePayment()" class="form">
-    <label for="date">Date:</label>
-    <input type="date" id="date" name="date" required [(ngModel)]="bookingDate" #date="ngModel">
-    <div *ngIf="date.invalid && (date.dirty || date.touched)" class="error-message">
-      <div *ngIf="date.errors?.['required']">Date is required.</div>
-    </div>
-
-    <label for="from">From:</label>
-    <select id="from" name="from" required>
-      <option value="airport1">Airport 1</option>
-      <option value="airport2">Airport 2</option>
-    </select>
-    
-
-    <!-- You can add more input fields as needed -->
-
-    <button type="submit">Calculate Payment</button>
-  </form>
-
   <div *ngIf="showPaymentDetails" class="payment-details">
-    <h2>Payment Details</h2>
+    <h2>Total Payment</h2>
     <p>Total: ₹{{ total }}</p>
     <p>Tax (5%): ₹{{ tax }}</p>
     <p>Total (inclusive of tax): ₹{{ totalInclusive }}</p>

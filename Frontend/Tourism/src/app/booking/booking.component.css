@@ -1,77 +1,96 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-top: 80px; /* Adjust the top margin as needed */
+}
+
+
+.booking-details {
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.booking-details h2 {
+  margin-top: 0;
+}
+
+.tour-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tour-image-container {
+  margin-right: 40px;
+}
+
 .tour-image {
-    width: 100px;
-    height: 100px;
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .booking-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #ccc; /* Add border */
-    border-radius: 5px;
-    padding: 20px;
-  }
-  
-  .package-info {
-    margin-bottom: 20px;
-  }
-  
-  .package-info h3 {
-    margin-top: 0;
-  }
-  
-  .package-info p {
-    margin: 5px 0;
-  }
-  
-  .package-info img {
-    max-width: 200px;
-    height: auto;
-  }
-  
-  .no-booking-message {
-    margin-bottom: 20px;
-  }
-  
-  .form {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-  }
-  
-  .form label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .form input[type="date"],
-  .form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .error-message {
-    margin-top: 5px;
-    color: red;
-  }
-  
-  .payment-details {
-    margin-top: 20px;
-    border-top: 1px solid #ccc; /* Add border to the top */
-    padding-top: 20px; /* Add padding for spacing */
-  }
-  
-  .payment-details h2 {
-    margin-top: 0; /* Adjust margin */
-  }
-  
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+.package-info {
+  flex: 1;
+}
+
+.package-info h3 {
+  margin: 0;
+}
+
+.package-info p {
+  margin: 5px 0;
+}
+
+.form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form input[type="date"],
+.form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error-message {
+  margin-top: 5px;
+  color: red;
+}
+
+.payment-details {
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.payment-details h2 {
+  margin-top: 0;
+}
+
+.payment-details p {
+  margin: 5px 0;
+}
+
+.payment-details button {
+  margin-top: 10px;
+}

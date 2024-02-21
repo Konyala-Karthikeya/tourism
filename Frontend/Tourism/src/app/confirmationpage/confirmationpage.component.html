@@ -2,6 +2,7 @@
 <div class="container">
     <div *ngIf="bookingDetails && bookingDetails.paymentCompleted" class="booking-details">
       <h2>Booking Confirmation</h2>
+      <p class="status success">Successfully booked package</p>
       <table>
         <tr>
           <td><b>Name:</b></td>
@@ -30,6 +31,6 @@
       </table>
     </div>
     <div *ngIf="!bookingDetails || !bookingDetails.paymentCompleted" class="no-booking-message">
-      <h2>No booking details found.</h2>
+      <h2 class="status error">No bookings found</h2>
     </div>
-  </div>
+</div>

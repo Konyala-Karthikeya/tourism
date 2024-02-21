@@ -61,8 +61,10 @@ export class ProfileComponent implements OnInit {
         this.toastr.success('Profile updated successfully!');
       },
       (error: any) => {
-        this.toastr.error('Failed to update profile. Please try again.');
+        console.error('Failed to update profile:', error);
+        this.toastr.error('Failed to update profile: ' + error.message);
       }
     );
   }
+  
 }
