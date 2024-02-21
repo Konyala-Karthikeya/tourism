@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -38,8 +38,17 @@ export class CustomerService {
     return this.http.get(`http://localhost:8085/sendOtp/${phoneNumber}/${otp}`);
   }
 
-  getAllCountries(): any {
-    return this.http.get('https://restcountries.com/v3.1/all');
+  // getAllCountries(): any {
+  //   return this.http.get('https://restcountries.com/v3.1/all');
+  // }
+
+  getAllCountries(): Observable<any> {
+    return this.http.get('https://restcountries.com/v3.1/all').pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error fetching countries:', error);
+        return throwError('Error fetching countries. Please try again later.'); // You can customize the error message
+      })
+    );
   }
   
   registerCustomer():any{
