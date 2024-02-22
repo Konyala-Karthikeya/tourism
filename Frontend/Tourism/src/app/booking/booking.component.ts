@@ -128,7 +128,7 @@ proceedToPayment() {
   const successCallback = (paymentid: any) => {
     console.log("Payment success");
     this.updateBookingDetails(true); // Update paymentCompleted flag
-    this.router.navigate(['confirmationpage']);
+    this.router.navigate(['welcome']);
   };
 
   const failureCallback = (error: any) => {
